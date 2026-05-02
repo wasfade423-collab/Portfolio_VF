@@ -1,0 +1,126 @@
+<!-- <nav
+      class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl border-b border-white/10"
+    >
+      <div
+        class="flex justify-between items-center max-w-7xl mx-auto px-6 h-20"
+      >
+        <div
+          class="text-2xl font-bold tracking-tighter text-white font-['Space_Grotesk']"
+        >
+          DevPortfolio
+        </div>
+        <div
+          class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] font-medium tracking-tight"
+        >
+          <a
+            class="text-lime-400 border-b-2 border-lime-400 pb-1 active:scale-95 transform transition-all"
+            href="#home"
+            >Home</a
+          >
+          <a
+            class="text-neutral-400 hover:text-violet-400 transition-colors duration-200 active:scale-95 transform transition-all"
+            href="#services"
+            >Services</a
+          >
+          <a
+            class="text-neutral-400 hover:text-violet-400 transition-colors duration-200 active:scale-95 transform transition-all"
+            href="#projects"
+            >Projects</a
+          >
+          <a
+            class="text-neutral-400 hover:text-violet-400 transition-colors duration-200 active:scale-95 transform transition-all"
+            href="#contact"
+            >Contact</a
+          >
+          <button
+            class="bg-primary-container text-white px-6 py-2 rounded-lg font-bold hover:shadow-[0_0_20px_rgba(77,40,185,0.4)] transition-all active:scale-95"
+          >
+            Hire Me
+          </button>
+        </div>
+      </div>
+    </nav> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Featured Project Card -->
+          <!-- <div
+            class="mt-16 glass-card rounded-3xl overflow-hidden grid lg:grid-cols-5 items-stretch min-h-[500px]"
+          >
+            <div class="lg:col-span-3 h-full relative">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="A macro shot of a sleek, dark laptop screen displaying a complex, vibrant web application interface. The code on the screen uses a high-contrast theme with neon purple and lime green syntax highlighting. The setting is a dimly lit, minimalist workspace with a soft bokeh effect from nearby server racks. The overall mood is hyper-technical and premium, emphasizing clean structure and advanced development."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYGMVU2G224abCb6u34R3PPEHg1DjtUaxypvFFeJb2HQViBlRiZqse3T4AB0CjcLVaaP4W1M0FHDTeYyFTaVY3zjs3Qv4ucl_etmnLZ7Jl_JIqv_AgeUrIqZdAvqGYB66bNibrUoeUN3T8Sg7RceXgNC4Znz_1DUgdEOr44Euu80u0rpkxYDFW36mZJi9ie9uvw0Kg-BnSwf9-EeRBrrnQ3GS2Zu7XcxLVBd8h7AGDrgK_VavuCYcLkC3WBvun8__BA187i_Z9jCQ"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent"
+              ></div>
+            </div>
+            <div
+              class="lg:col-span-2 p-12 flex flex-col justify-center bg-surface-container"
+            >
+              <span
+                class="text-secondary font-bold text-sm tracking-widest uppercase mb-4"
+                >Latest Project</span
+              >
+              <h3 class="font-h2 text-h3 text-white mb-6">
+                OmniStack Cloud Infrastructure
+              </h3>
+              <p class="text-on-surface-variant mb-8 leading-relaxed">
+                An enterprise-grade orchestration platform built with Laravel
+                and React, automating cloud deployments across AWS and GCP
+                instances.
+              </p>
+              <div class="flex gap-4">
+                <span
+                  class="px-3 py-1 bg-surface-variant rounded text-xs text-primary font-bold"
+                  >REACT</span
+                >
+                <span
+                  class="px-3 py-1 bg-surface-variant rounded text-xs text-primary font-bold"
+                  >AWS</span
+                >
+                <span
+                  class="px-3 py-1 bg-surface-variant rounded text-xs text-primary font-bold"
+                  >LARAVEL</span
+                >
+              </div>
+            </div>
+          </div> -->
+        

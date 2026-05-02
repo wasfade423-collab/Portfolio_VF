@@ -1,0 +1,153 @@
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://hpglwyqqjxkjzjjzqjqj.supabase.co">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wasfade Tonoukoin | Software Engineer & AI Specialist</title>
+  <meta name="description"
+    content="Portfolio of Wasfade Tonoukoin, a Full-Stack Developer and Mobile App Developer. Discover my projects in Web Development, and Artificial Intelligence." />
+  <meta name="keywords"
+    content="Wasfade Tonoukoin, Wasfade Tonoukoin portfolio , Wasfade Tonoukoin, web , Software Engineer, Wasfade Tonoukoin portfolio , AI Specialist, Web Developer, Portfolio, IoT, Python, Machine Learning ,Innovation, Technologie, Génie Électrique, Ingénieur IA " />
+  <meta name="author" content="Wasfade Tonoukoin" />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://wasfadetonoukoin.vercel.app/" />
+  <meta property="og:title" content="Wasfade Tonoukoin | Software Engineer & AI Specialist" />
+  <meta property="og:description"
+    content="Portfolio of Wasfade Tonoukoin. Building innovative digital solutions at the intersection of Software and AI." />
+  <meta property="og:image" content="/og-image.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://wasfadetonoukoin.vercel.app/" />
+  <meta property="twitter:title" content="Wasfade Tonoukoin | Software Engineer & AI Specialist" />
+  <meta property="twitter:description"
+    content="Portfolio of Wasfade Tonoukoin. Building innovative digital solutions at the intersection of Software and AI." />
+  <meta property="twitter:image" content="/og-image.png" />
+
+  <link rel="canonical" href="https://wasfadetonoukoin.vercel.app/" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Wasfade TONOUKOIN",
+    "url": "https://wasfadetonoukoin.vercel.app/",
+    "image": [
+      "https://gravatar.com/wasfadetonoukoin",
+      "https://wasfadetonoukoin.vercel.app/assets/profil.png"
+    ],
+    "description": "Développeur web et mobile basé à Abomey-Calavi, Bénin. Passionné par le développement logiciel, l'IA et le génie électrique.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Abomey-Calavi",
+      "addressRegion": "Atlantique",
+      "addressCountry": "BJ"
+    },
+    "sameAs": [
+      "https://github.com/wasfade423-collab",
+      "https://www.linkedin.com/in/wasfade-tonoukoin-69039b39a/",
+      "https://gravatar.com/wasfadetonoukoin"
+    ],
+    "email": "wasfadetonoukoin@gmail.com"
+  }
+  </script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MP8WTZXQ');</script>
+<!-- End Google Tag Manager -->
+  <style>
+    /* CACHE TOUT l'interface Google Translate */
+    #google_translate_element,
+    .goog-te-gadget,
+    .goog-te-banner-frame,
+    .goog-te-banner,
+    .goog-te-menu-frame,
+    .goog-te-tooltip,
+    .goog-te-balloon-frame,
+    #goog-gt-tt,
+    .goog-tooltip,
+    .goog-text-highlight,
+    iframe.skiptranslate {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
+    /* Empêche le décalage de la page vers le bas */
+    html {
+      padding-top: 0px !important;
+    }
+
+    body {
+      top: 0px !important;
+      position: static !important;
+    }
+
+    /* Pour les iframes spécifiques à Google */
+    iframe[id*=":1.container"],
+    iframe[id*=":2.container"],
+    iframe.goog-te-menu-frame {
+      display: none !important;
+    }
+  </style>
+
+  <script type="text/javascript">
+    function forceCleanup() {
+      // Force le layout sur html et body
+      document.documentElement.style.setProperty('padding-top', '0px', 'important');
+      document.body.style.setProperty('top', '0px', 'important');
+
+      // Masque les éléments de l'UI Google Translate
+      const selectors = [
+        '.goog-te-banner-frame',
+        '.goog-te-banner',
+        '.goog-te-balloon-frame',
+        '#goog-gt-tt',
+        '.goog-tooltip',
+        '.goog-text-highlight',
+        'iframe.skiptranslate',
+        '.goog-te-menu-frame',
+        '.goog-te-gadget'
+      ];
+
+      selectors.forEach(selector => {
+        document.querySelectorAll(selector).forEach(el => {
+          el.style.display = 'none';
+          el.style.visibility = 'hidden';
+        });
+      });
+    }
+
+    // Observer pour réagir aux injections dynamiques
+    const observer = new MutationObserver(forceCleanup);
+    observer.observe(document.documentElement, { attributes: true, childList: true, subtree: true });
+
+    // Intervalle de sécurité pour les premières secondes
+    const cleanInterval = setInterval(forceCleanup, 300);
+    setTimeout(() => clearInterval(cleanInterval), 5000);
+
+    window.addEventListener('load', forceCleanup);
+  </script>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;600;800&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;600;800&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;600;800&display=swap"
+      rel="stylesheet">
+  </noscript>
+
+  <meta name="google-site-verification" content="1pCR1J0h90PalkK47lcEO3ldlTIA5AJFiFep0LiUuZk" />
+  <script type="module" crossorigin src="/assets/index-8y6VhzEJ.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BA47J1Qw.css">
+</head>
+
+
