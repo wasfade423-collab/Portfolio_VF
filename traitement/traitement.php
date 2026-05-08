@@ -66,7 +66,7 @@
                     Email: $email
                 ";
                 if($instance->send()){
-                    $succes = "Message envoyé avec succes. Merci de m'avoir contacté, je vous répondrai dans les plus brefs délais!"; 
+                    $succes = "Message envoyé avec succes!"; 
                     $_SESSION["succes"] = $succes;
                 }
             }catch(Exception $e){

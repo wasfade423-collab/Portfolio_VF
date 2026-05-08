@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!doctype html>
 
 <html class="dark" lang="en" style="scroll-behavior: smooth">
@@ -620,13 +622,13 @@
             </div>
           </div>
         </div>
-        <form class="glass-card p-10 rounded-[2rem] space-y-6" action="traitement/traitement.php">
+        <form class="glass-card p-10 rounded-[2rem] space-y-6" action="traitement/traitement.php" method = "POST">
           <?php if (isset($_SESSION["succes"])) { ?>
 
-            <div class="text-emerald-500 text-lg font-light"><?= $_SESSION["succes"] ?? "" ?></div>
+            <div class="text-center text-emerald-500 text-lg font-light"><?= $_SESSION["succes"] ?? "" ?></div>
           <?php } ?> <?php if (isset($_SESSION["error"]["send"])) { ?>
 
-            <div class="text-red-500 text-lg font-light"><?= $_SESSION["error"]["send"] ?? "" ?></div>
+            <div class="text-center text-red-500 text-lg font-light"><?= $_SESSION["error"]["send"] ?? "" ?></div>
           <?php } ?>
           <div class="grid md:grid-cols-2 max-md:grid-cols-1 gap-6">
             <div class="space-y-2">
@@ -638,6 +640,7 @@
                 name="prenom"
                 class="w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
                 placeholder="Wasfade"
+                value = "<?= @$_SESSION["prenom"] ?>"
                 type="text" />
                 <span class="text-red-500 font-medium text-xs"><?= @$_SESSION["error"]["prenom"] ?? "" ?></span>
             </div>
@@ -650,33 +653,36 @@
                 name="nom"
                 class="w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
                 placeholder="Tonoukoin"
+                value = "<?= @$_SESSION["nom"] ?>"
                 type="text" />
                 <span class="text-red-500 font-medium text-xs"><?= @$_SESSION["error"]["nom"] ?? "" ?></span>
             </div>
           </div>
           <div class="space-y-2">
             <label
-              for="sujet"
-              class="text-xs font-bold text-on-surface-variant uppercase ml-1">Subject</label>
-            <input
-              id="sujet"
-              name="sujet"
-              class="w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
-              placeholder="Sujet du message"
-              type="text" />
-              <span class="text-red-500 font-medium text-xs"><?= @$_SESSION["error"]["sujet"] ?? "" ?></span>
-          </div>
-          <div class="space-y-2">
-            <label
               for="email"
-              class="text-xs font-bold text-on-surface-variant uppercase ml-1">Email Address</label>
+              class="text-xs font-bold text-on-surface-variant uppercase ml-1">Adresse mail</label>
             <input
               id="email"
               name="email"
               class="w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
-              placeholder="john@example.com"
+              placeholder="wasfade@example.com"
+              value="<?= @$_SESSION["email"] ?>"
               type="email" />
               <span class="text-red-500 font-medium text-xs"><?= @$_SESSION["error"]["email"] ?? "" ?></span>
+          </div>          
+          <div class="space-y-2">
+            <label
+              for="sujet"
+              class="text-xs font-bold text-on-surface-variant uppercase ml-1">Sujet</label>
+            <input
+              id="subject"
+              name="subject"
+              class="w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
+              placeholder="Sujet du message"
+              value="<?= @$_SESSION["subject"] ?>"
+              type="text" />
+              <span class="text-red-500 font-medium text-xs"><?= @$_SESSION["error"]["subject"] ?? "" ?></span>
           </div>
           <div class="space-y-2">
             <label
@@ -687,7 +693,7 @@
               name="message"
               class="w-full resize-y bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
               placeholder="Comment pourrais-je vous aider?"
-              rows="4"></textarea>
+              rows="4"><?= @$_SESSION["message"] ?></textarea>
               <span class="text-red-500 font-medium text-xs"><?= @$_SESSION["error"]["message"] ?? "" ?></span>
           </div>
           <button
@@ -797,6 +803,10 @@
       //le navigateur supporte le partage natif
     });
   </script>
+
+<?php 
+    session_unset();
+?>  
 </body>
 
 </html>
