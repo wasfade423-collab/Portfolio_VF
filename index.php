@@ -885,8 +885,18 @@
     const partageBtn = document.getElementById("partageBtn");
 
     partageBtn.addEventListener("click",() => {
-      document.getElementById("modalShare").classList.toggle("hidden");
-      //le navigateur supporte le partage natif
+
+    const shareData = {
+      title: "Portfolio de Wasfade",
+      text: "Regardez le Portfolio de Wasfade Tonoukoin Software Engineer !",
+      url: "https://wa.me/moi",
+    };
+      try {
+        navigator.share(shareData);
+      } catch (err) {
+        document.getElementById("modalShare").classList.toggle("hidden");
+        //le navigateur supporte le partage natif
+      }
     });
 
     function closeModal(){
