@@ -778,13 +778,13 @@
     </div>
 
     <div class="grid grid-cols-4 gap-6 w-full">    
-  <button class="group flex flex-col items-center gap-2 btnCopier" data-url="https://wa.me/moi">
+  <button class="group flex flex-col items-center gap-2 btnCopier shareWays" id="copy" data-url="https://wa.me/moi">
         <div class="w-14 h-14 rounded-2xl bg-indigo-500/20 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300 shadow-lg shadow-indigo-500/10">
           <i class="ri-file-copy-2-fill text-2xl"></i>
         </div>
         <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white">Copier</span>
       </button>
-<button class="group flex flex-col items-center gap-2 btnFacebook" data-url="https://wa.me/moi">
+<button class="group flex flex-col items-center gap-2 btnFacebook shareWays" id="facebook" data-url="https://wa.me/moi">
   <div class="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-lg group-hover:shadow-blue-600/20">
     <i class="ri-facebook-circle-fill text-2xl"></i>
   </div>
@@ -794,27 +794,27 @@
   </span>
 </button>  
 
-      <button class="group flex flex-col items-center gap-2 btnWhatsapp" data-url="https://wa.me/moi">
+      <button class="group flex flex-col items-center gap-2 btnWhatsapp shareWays" id="whatsapp" data-url="https://wa.me/moi">
         <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
           <i class="ri-whatsapp-fill text-2xl"></i>
         </div>
         <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white">WhatsApp</span>
       </button>
 
-      <button class="group flex flex-col items-center gap-2 btnLinkedIn" data-url="https://wa.me/moi">
+      <button class="group flex flex-col items-center gap-2 btnLinkedIn shareWays" id="linkedin" data-url="https://wa.me/moi">
         <div class="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
           <i class="ri-linkedin-box-fill text-2xl"></i>
         </div>
         <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white">LinkedIn</span>
       </button>
 
-      <button class="group flex flex-col items-center gap-2 btnMessenger" data-url="https://wa.me/moi">
+      <button class="group flex flex-col items-center gap-2 btnMessenger shareWays" id="messenger" data-url="https://wa.me/moi">
         <div class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
           <i class="ri-messenger-fill text-2xl"></i>
         </div>
         <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white">Messenger</span>
       </button>
-    <button class="group flex flex-col items-center gap-2 btnInstagram" data-url="https://wa.me/moi">
+    <button class="group flex flex-col items-center gap-2 btnInstagram shareWays" id="instagram" data-url="https://wa.me/moi">
       <div class="w-14 h-14 rounded-2xl bg-pink-500/10 flex items-center justify-center text-pink-500 group-hover:bg-gradient-to-tr group-hover:from-[#f9ce34] group-hover:via-[#ee2a7b] group-hover:to-[#6228d7] group-hover:text-white transition-all duration-500 shadow-lg group-hover:shadow-pink-500/20">
         <i class="ri-instagram-fill text-2xl"></i>
       </div>
@@ -823,7 +823,7 @@
         Instagram
       </span>
     </button> 
-    <button class="group flex flex-col items-center gap-2 btnTiktok" data-url="https://wa.me/moi">
+    <button class="group flex flex-col items-center gap-2 btnTiktok shareWays" id="tiktok" data-url="https://wa.me/moi">
             <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-gray-400 group-hover:bg-black group-hover:border-white/20 group-hover:text-white group-hover:shadow-[0_0_15px_rgba(255,255,255,0.15)] transition-all duration-300 ease-in-out">
               <i class="ri-tiktok-fill text-2xl"></i>
             </div>
@@ -832,7 +832,7 @@
             TikTok
           </span>
     </button>    
-    <button class="group flex flex-col items-center gap-2 btnX" data-url="https://wa.me/moi">
+    <button class="group flex flex-col items-center gap-2 btnX shareWays" id="x" data-url="https://wa.me/moi">
       <div class="w-14 h-14 rounded-2xl bg-black border border-white/10 flex items-center justify-center text-white 
                   group-hover:bg-white group-hover:text-black transition-all duration-300 
                   shadow-lg group-hover:shadow-white/10">
@@ -895,6 +895,13 @@
         navigator.share(shareData);
       } catch (err) {
         document.getElementById("modalShare").classList.toggle("hidden");
+
+        document.querySelectorAll(".shareways").forEach(shareway, ()=>{
+          shareway.addEventListener("click", ()=>{
+            let id = shareway.id;
+            shareOn(id);
+          })
+        })
         //le navigateur supporte le partage natif
       }
     });
@@ -902,6 +909,53 @@
     function closeModal(){
       document.getElementById("modalShare").classList.add("hidden");
     }
+
+    //paratge si le modèle de téléphone ne travaille pas.
+    function shareOn(platform) {
+        const siteUrl = https; //wa.me/moi;
+        const siteText =
+          "Regardez le Portfolio de Wasfade Tonoukoin Software Engineer !";
+        const encodedUrl = encodeURIComponent(siteUrl);
+        const encodedText = encodeURIComponent(siteText);
+
+        let shareUrl = "";
+
+        switch (platform) {
+          case "whatsapp":
+            shareUrl = `https://wa.me/?text=${encodedText}%20${encodedUrl}`;
+            break;
+          case "facebook":
+            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+            break;
+          case "x":
+            shareUrl = `https://x.com/intent/post?text=${encodedText}&url=${encodedUrl}`;
+            break;
+          case "linkedin":
+            shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+            break;
+          case "messenger":
+            shareUrl = `https://www.facebook.com/dialog/send?link=${encodedUrl}&app_id=123456789&redirect_uri=${encodedUrl}`;
+            break;
+          case "instagram":
+            navigator.clipboard.writeText(siteUrl);
+            alert(
+              "Lien copié ! Instagram ne permet pas le partage direct d'URL, vous pouvez maintenant le coller dans votre Story.",
+            );
+            return;
+          case "tiktok":
+            navigator.clipboard.writeText(siteUrl);
+            alert("Lien copié pour TikTok !");
+            return;
+          case "copy":
+            navigator.clipboard.writeText(siteUrl);
+            alert("Lien copié avec succès !");
+            return;
+        }
+
+        if (shareUrl !== "") {
+          window.open(shareUrl, "_blank", "width=600,height=450");
+        }
+    }    
     
 
   </script>
