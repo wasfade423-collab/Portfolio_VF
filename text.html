@@ -225,9 +225,10 @@
         if (e.target === modal) closeModal();
       });
 
-    function shareOn(platform) {
-        const siteUrl = https;//wa.me/moi;
-        const siteText = "Regardez le Portfolio de Wasfade Tonoukoin Software Engineer !";
+      function shareOn(platform) {
+        const siteUrl = https; //wa.me/moi;
+        const siteText =
+          "Regardez le Portfolio de Wasfade Tonoukoin Software Engineer !";
         const encodedUrl = encodeURIComponent(siteUrl);
         const encodedText = encodeURIComponent(siteText);
 
@@ -268,7 +269,7 @@
         if (shareUrl !== "") {
           window.open(shareUrl, "_blank", "width=600,height=450");
         }
-    }
+      }
     </script>
   </body>
 </html>
