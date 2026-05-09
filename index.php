@@ -177,7 +177,7 @@
 </head>
 
 <body
-  class="bg-background text-on-background font-body-md overflow-x-hidden max-md:antialiased">
+  class="relative bg-background text-on-background font-body-md overflow-x-hidden max-md:antialiased">
   <!-- TopNavBar -->
   <nav
     class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl border-b border-white/10"
@@ -260,7 +260,7 @@
         <li>
           <a
             class="text-neutral-400 border-transparent border-b-2 lien hover:text-violet-400 pb-1 transition-colors duration-200 active:scale-95 transform transition-all"
-            href="#contact">
+            href="#contact" translate="no">
             Contact
           </a>
         </li>
@@ -289,28 +289,25 @@
             class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant">
             <span
               class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-            <span class="text-label-caps text-secondary">Available for new projects</span>
+            <span class="text-label-caps text-secondary">Disponible pour de nouveaux projets</span>
           </div>
           <h1 class="font-h1 text-h1 text-white leading-tight max-md:text-h3">
-            Engineering
-            <span class="text-primary italic">High-Performance</span> Digital
-            Experiences.
+            Concevoir des expériences numériques de
+            <span class="text-primary italic">haute performance</span> 
           </h1>
           <p class="text-body-lg text-on-surface-variant max-w-lg">
-            I am a Senior Web &amp; Mobile Developer specializing in building
-            robust architectures and seamless user interfaces. Turning complex
-            problems into elegant, scalable solutions.
+            Je suis développeur Web &amp; Mobile senior, spécialisé dans la conception d'architectures robustes et d'interfaces utilisateur intuitives. Je transforme les problèmes complexes en solutions élégantes et évolutives.
           </p>
           <div
             class="flex gap-4 max-md:justify-between max-md:items-center max-md:text-sm">
             <button
               class="bg-primary-container text-white px-8 py-4 max-md:py-2 max-md:px-3 rounded-xl font-bold flex items-center gap-2 hover:scale-105 transition-transform active:scale-95 shadow-xl">
-              View Projects
+              Voir Projets
               <i class="ri-arrow-right-line"></i>
             </button>
             <button
               class="border border-secondary text-secondary px-8 py-4 max-md:py-2 max-md:px-3 rounded-xl font-bold hover:bg-secondary/10 transition-colors active:scale-95">
-              Download CV
+              Télécharger le CV
             </button>
           </div>
         </div>
@@ -768,6 +765,92 @@
     <i class="ri-share-fill text-3xl"></i>
   </button>
 
+  <!-- Partage zone -->
+<div id="modalShare" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-md transition-all duration-300">
+  
+  <div class="p-8 h-auto rounded-3xl bg-[#1c1a23] border border-white/10 flex flex-col items-center shadow-2xl w-[90%] max-w-[500px] transform transition-all scale-100">
+    
+    <div class="w-full flex justify-between items-center mb-8">
+      <h3 class="font-semibold text-xl text-white tracking-tight">Partager le lien via...</h3>
+      <button onclick="closeModal()" class="text-gray-400 hover:text-white transition-colors">
+        <i class="ri-close-line text-2xl"></i>
+      </button>
+    </div>
+
+    <div class="grid grid-cols-4 gap-6 w-full">    
+  <button class="group flex flex-col items-center gap-2 btnCopier" data-url="https://wa.me/moi">
+        <div class="w-14 h-14 rounded-2xl bg-indigo-500/20 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300 shadow-lg shadow-indigo-500/10">
+          <i class="ri-file-copy-2-fill text-2xl"></i>
+        </div>
+        <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white">Copier</span>
+      </button>
+<button class="group flex flex-col items-center gap-2 btnFacebook" data-url="https://wa.me/moi">
+  <div class="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-lg group-hover:shadow-blue-600/20">
+    <i class="ri-facebook-circle-fill text-2xl"></i>
+  </div>
+  
+  <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white transition-colors">
+    Facebook
+  </span>
+</button>  
+
+      <button class="group flex flex-col items-center gap-2 btnWhatsapp" data-url="https://wa.me/moi">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+          <i class="ri-whatsapp-fill text-2xl"></i>
+        </div>
+        <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white">WhatsApp</span>
+      </button>
+
+      <button class="group flex flex-col items-center gap-2 btnLinkedIn" data-url="https://wa.me/moi">
+        <div class="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+          <i class="ri-linkedin-box-fill text-2xl"></i>
+        </div>
+        <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white">LinkedIn</span>
+      </button>
+
+      <button class="group flex flex-col items-center gap-2 btnMessenger" data-url="https://wa.me/moi">
+        <div class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
+          <i class="ri-messenger-fill text-2xl"></i>
+        </div>
+        <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white">Messenger</span>
+      </button>
+    <button class="group flex flex-col items-center gap-2 btnInstagram" data-url="https://wa.me/moi">
+      <div class="w-14 h-14 rounded-2xl bg-pink-500/10 flex items-center justify-center text-pink-500 group-hover:bg-gradient-to-tr group-hover:from-[#f9ce34] group-hover:via-[#ee2a7b] group-hover:to-[#6228d7] group-hover:text-white transition-all duration-500 shadow-lg group-hover:shadow-pink-500/20">
+        <i class="ri-instagram-fill text-2xl"></i>
+      </div>
+      
+      <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white transition-colors">
+        Instagram
+      </span>
+    </button> 
+    <button class="group flex flex-col items-center gap-2 btnTiktok" data-url="https://wa.me/moi">
+            <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-gray-400 group-hover:bg-black group-hover:border-white/20 group-hover:text-white group-hover:shadow-[0_0_15px_rgba(255,255,255,0.15)] transition-all duration-300 ease-in-out">
+              <i class="ri-tiktok-fill text-2xl"></i>
+            </div>
+      
+          <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white transition-colors duration-300">
+            TikTok
+          </span>
+    </button>    
+    <button class="group flex flex-col items-center gap-2 btnX" data-url="https://wa.me/moi">
+      <div class="w-14 h-14 rounded-2xl bg-black border border-white/10 flex items-center justify-center text-white 
+                  group-hover:bg-white group-hover:text-black transition-all duration-300 
+                  shadow-lg group-hover:shadow-white/10">
+        <i class="ri-twitter-x-fill text-2xl"></i>
+      </div>
+      
+      <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white transition-colors">
+        X
+      </span>
+    </button>   
+
+      </div>
+
+    <p class="mt-8 text-gray-500 text-[10px] uppercase tracking-widest">Wasfade Tonoukoin • Portfolio</p>
+  </div>
+</div>
+
+
   <script>
     //mon Burger System
     let burger = document.getElementById("burger");
@@ -797,11 +880,20 @@
         lien.classList.add("text-lime-400", "border-lime-400");
       });
     });
+
+    //share zone
     const partageBtn = document.getElementById("partageBtn");
 
-    partageBtn.addEventListener("click", async () => {
+    partageBtn.addEventListener("click",() => {
+      document.getElementById("modalShare").classList.toggle("hidden");
       //le navigateur supporte le partage natif
     });
+
+    function closeModal(){
+      document.getElementById("modalShare").classList.add("hidden");
+    }
+    
+
   </script>
 
 <?php 

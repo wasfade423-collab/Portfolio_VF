@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Modal Partage - Octave</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #14121a;
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden">
+    <!-- CONTENU PRINCIPAL (Sera flouté) -->
+    <main
+      id="mainContent"
+      class="min-h-screen flex flex-col items-center justify-center p-6 transition-all duration-500"
+    >
+      <h1 class="text-4xl font-bold mb-4 text-center">Mon Super Portfolio</h1>
+      <p class="text-gray-400 mb-8 text-center max-w-md">
+        Ceci est un test pour le système de partage personnalisé avec effet de
+        flou dynamique.
+      </p>
+
+      <!-- Bouton qui déclenche tout -->
+      <button
+        onclick="openModal()"
+        class="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-full font-semibold shadow-lg shadow-indigo-500/20 transition-all active:scale-95"
+      >
+        Partager mon site
+      </button>
+    </main>
+
+    <!-- MODAL DE PARTAGE -->
+    <div
+      id="modalShare"
+      class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/60 transition-all duration-300"
+    >
+      <!-- Fenêtre du Modal -->
+      <div
+        class="relative p-8 h-auto rounded-3xl bg-[#1c1a23] border border-white/10 flex flex-col items-center shadow-2xl w-[90%] max-w-[450px] transform transition-all"
+      >
+        <!-- Bouton Fermer -->
+        <button
+          onclick="closeModal()"
+          class="absolute top-5 right-5 text-gray-400 hover:text-white transition-colors"
+        >
+          <i class="ri-close-line text-2xl"></i>
+        </button>
+
+        <h3 class="font-semibold text-xl text-white mb-8 pr-8">
+          Partager le lien via...
+        </h3>
+
+        <!-- Grille des icônes -->
+        <div class="grid grid-cols-4 gap-y-8 gap-x-4 w-full">
+          <!-- Copier -->
+          <button
+            onclick="shareOn('copy')"
+            class="group flex flex-col items-center gap-2"
+          >
+            <div
+              class="w-14 h-14 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300 shadow-lg group-hover:shadow-indigo-500/20"
+            >
+              <i class="ri-file-copy-2-fill text-2xl"></i>
+            </div>
+            <span
+              class="text-center font-light text-[11px] text-gray-400 group-hover:text-white"
+              >Copier</span
+            >
+          </button>
+
+          <!-- WhatsApp -->
+          <button
+            onclick="shareOn('whatsapp')"
+            class="group flex flex-col items-center gap-2"
+          >
+            <div
+              class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300"
+            >
+              <i class="ri-whatsapp-fill text-2xl"></i>
+            </div>
+            <span
+              class="text-center font-light text-[11px] text-gray-400 group-hover:text-white"
+              >WhatsApp</span
+            >
+          </button>
+
+          <!-- Facebook -->
+          <button
+            onclick="shareOn('facebook')"
+            class="group flex flex-col items-center gap-2"
+          >
+            <div
+              class="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300"
+            >
+              <i class="ri-facebook-circle-fill text-2xl"></i>
+            </div>
+            <span
+              class="text-center font-light text-[11px] text-gray-400 group-hover:text-white"
+              >Facebook</span
+            >
+          </button>
+
+          <!-- X (ex-Twitter) -->
+          <button
+            onclick="shareOn('x')"
+            class="group flex flex-col items-center gap-2"
+          >
+            <div
+              class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-all duration-300"
+            >
+              <i class="ri-twitter-x-fill text-2xl"></i>
+            </div>
+            <span
+              class="text-center font-light text-[11px] text-gray-400 group-hover:text-white"
+              >X</span
+            >
+          </button>
+
+          <!-- LinkedIn -->
+          <button
+            onclick="shareOn('linkedin')"
+            class="group flex flex-col items-center gap-2"
+          >
+            <div
+              class="w-14 h-14 rounded-2xl bg-blue-700/10 flex items-center justify-center text-blue-700 group-hover:bg-blue-700 group-hover:text-white transition-all duration-300"
+            >
+              <i class="ri-linkedin-box-fill text-2xl"></i>
+            </div>
+            <span
+              class="text-center font-light text-[11px] text-gray-400 group-hover:text-white"
+              >LinkedIn</span
+            >
+          </button>
+
+          <!-- Instagram -->
+          <button
+            onclick="shareOn('instagram')"
+            class="group flex flex-col items-center gap-2"
+          >
+            <div
+              class="w-14 h-14 rounded-2xl bg-pink-500/10 flex items-center justify-center text-pink-500 group-hover:bg-gradient-to-tr group-hover:from-[#f9ce34] group-hover:via-[#ee2a7b] group-hover:to-[#6228d7] group-hover:text-white transition-all duration-500"
+            >
+              <i class="ri-instagram-fill text-2xl"></i>
+            </div>
+            <span
+              class="text-center font-light text-[11px] text-gray-400 group-hover:text-white"
+              >Instagram</span
+            >
+          </button>
+
+          <!-- TikTok (Version Épurée) -->
+          <button
+            onclick="shareOn('tiktok')"
+            class="group flex flex-col items-center gap-2"
+          >
+            <div
+              class="w-14 h-14 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-gray-400 group-hover:bg-black group-hover:border-white/20 group-hover:text-white group-hover:shadow-[0_0_15px_rgba(255,255,255,0.15)] transition-all duration-300"
+            >
+              <i class="ri-tiktok-fill text-2xl"></i>
+            </div>
+            <span
+              class="text-center font-light text-[11px] text-gray-400 group-hover:text-white"
+              >TikTok</span
+            >
+          </button>
+
+          <!-- Messenger -->
+          <button
+            onclick="shareOn('messenger')"
+            class="group flex flex-col items-center gap-2"
+          >
+            <div
+              class="w-14 h-14 rounded-2xl bg-blue-400/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-400 group-hover:text-white transition-all duration-300"
+            >
+              <i class="ri-messenger-fill text-2xl"></i>
+            </div>
+            <span
+              class="text-center font-light text-[11px] text-gray-400 group-hover:text-white"
+              >Messenger</span
+            >
+          </button>
+        </div>
+
+        <p class="mt-8 text-gray-500 text-[10px] uppercase tracking-[0.2em]">
+          Octave • Portfolio System
+        </p>
+      </div>
+    </div>
+
+    <!-- LOGIQUE JAVASCRIPT -->
+    <script>
+      const modal = document.getElementById("modalShare");
+      const mainContent = document.getElementById("mainContent");
+
+      function openModal() {
+        modal.classList.remove("hidden");
+        mainContent.classList.add(
+          "blur-lg",
+          "pointer-events-none",
+          "scale-[0.98]",
+        );
+      }
+
+      function closeModal() {
+        modal.classList.add("hidden");
+        mainContent.classList.remove(
+          "blur-lg",
+          "pointer-events-none",
+          "scale-[0.98]",
+        );
+      }
+
+      // Fermer le modal si on clique à l'extérieur
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      function shareOn(platform) {
+        const siteUrl = window.location.href;
+        const siteText = "Regardez le portfolio de ce Software Engineer !";
+        const encodedUrl = encodeURIComponent(siteUrl);
+        const encodedText = encodeURIComponent(siteText);
+
+        let shareUrl = "";
+
+        switch (platform) {
+          case "whatsapp":
+            shareUrl = `https://wa.me/?text=${encodedText}%20${encodedUrl}`;
+            break;
+          case "facebook":
+            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+            break;
+          case "x":
+            shareUrl = `https://x.com/intent/post?text=${encodedText}&url=${encodedUrl}`;
+            break;
+          case "linkedin":
+            shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+            break;
+          case "messenger":
+            shareUrl = `https://www.facebook.com/dialog/send?link=${encodedUrl}&app_id=123456789&redirect_uri=${encodedUrl}`;
+            break;
+          case "instagram":
+            navigator.clipboard.writeText(siteUrl);
+            alert(
+              "Lien copié ! Instagram ne permet pas le partage direct d'URL, vous pouvez maintenant le coller dans votre Story.",
+            );
+            return;
+          case "tiktok":
+            navigator.clipboard.writeText(siteUrl);
+            alert("Lien copié pour TikTok !");
+            return;
+          case "copy":
+            navigator.clipboard.writeText(siteUrl);
+            alert("Lien copié avec succès !");
+            return;
+        }
+
+        if (shareUrl !== "") {
+          window.open(shareUrl, "_blank", "width=600,height=450");
+        }
+      }
+    </script>
+  </body>
+</html>
