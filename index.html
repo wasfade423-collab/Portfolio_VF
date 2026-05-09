@@ -896,10 +896,10 @@
       } catch (err) {
         document.getElementById("modalShare").classList.toggle("hidden");
 
-        document.querySelectorAll(".shareways").forEach(shareway, ()=>{
-          shareway.addEventListener("click", ()=>{
-            let id = shareway.id;
-            shareOn(id);
+        shareWays = document.querySelectorAll(".shareWays");
+        shareWays.forEach(shareWay => {
+          shareWay.addEventListener("click", ()=>{
+            shareOn(shareWay.id);
           })
         })
         //le navigateur supporte le partage natif
@@ -912,7 +912,7 @@
 
     //paratge si le modèle de téléphone ne travaille pas.
     function shareOn(platform) {
-        const siteUrl = https; //wa.me/moi;
+        const siteUrl = "https://wa.me/moi";
         const siteText =
           "Regardez le Portfolio de Wasfade Tonoukoin Software Engineer !";
         const encodedUrl = encodeURIComponent(siteUrl);
