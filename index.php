@@ -8,6 +8,7 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>DevPortfolio | Développeur Web & Mobile Moderne</title>
+  <link rel="icon" type="image/webp" href="assets/images/logo.webp">
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
@@ -221,7 +222,7 @@
 
         <button
           class="bg-primary-container text-white px-6 py-2 rounded-lg font-bold hover:shadow-[0_0_20px_rgba(77,40,185,0.4)] transition-all active:scale-95">
-          Hire Me
+          <a href="https://wa.me/2290194853019?text=Projet..." target="_blank" rel="noopener noreferrer">Hire Me</a>
         </button>
       </div>
 
@@ -307,7 +308,7 @@
               <a href="#projet">Voir Projets</a>
               <i class="ri-arrow-right-line max-md:hidden"></i>
             </button>
-            <button
+            <button onclick="openCV()"
               class="border border-secondary text-secondary px-8 py-4 max-md:py-2 max-md:px-3 rounded-xl font-bold hover:bg-secondary/10 transition-colors active:scale-95">
               Télécharger le CV
             </button>
@@ -779,21 +780,21 @@
     </div>
 
     <div class="grid grid-cols-4 gap-6 w-full">    
-  <button class="group flex flex-col items-center gap-2 btnCopier shareWays" id="copy" data-url="https://wa.me/moi">
+    <button class="group flex flex-col items-center gap-2 btnCopier shareWays" id="copy" data-url="https://wa.me/moi">
         <div class="w-14 h-14 rounded-2xl bg-indigo-500/20 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300 shadow-lg shadow-indigo-500/10">
           <i class="ri-file-copy-2-fill text-2xl"></i>
         </div>
         <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white">Copier</span>
       </button>
-<button class="group flex flex-col items-center gap-2 btnFacebook shareWays" id="facebook" data-url="https://wa.me/moi">
-  <div class="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-lg group-hover:shadow-blue-600/20">
-    <i class="ri-facebook-circle-fill text-2xl"></i>
-  </div>
-  
-  <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white transition-colors">
-    Facebook
-  </span>
-</button>  
+    <button class="group flex flex-col items-center gap-2 btnFacebook shareWays" id="facebook" data-url="https://wa.me/moi">
+      <div class="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-lg group-hover:shadow-blue-600/20">
+        <i class="ri-facebook-circle-fill text-2xl"></i>
+      </div>
+      
+      <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white transition-colors">
+        Facebook
+      </span>
+    </button>  
 
       <button class="group flex flex-col items-center gap-2 btnWhatsapp shareWays" id="whatsapp" data-url="https://wa.me/moi">
         <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
@@ -848,6 +849,25 @@
       </div>
 
     <p class="mt-8 text-gray-500 text-[10px] uppercase tracking-widest">Wasfade Tonoukoin • Portfolio</p>
+  </div>
+</div>
+
+  <!-- CV indisponible -->
+<div id="ZoneCV" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-md transition-all duration-300">
+  
+  <div class="h-auto rounded-3xl bg-[#1c1a23] border border-white/10 flex flex-col shadow-2xl w-[90%] max-w-[500px] transform transition-all scale-100">
+    
+    <div class="bg-red-50/20 rounded-t-3xl text-4xl font-bold border-b-4 p-2 text-center border-red-500">
+      <button onclick="closeModal()" class="text-gray-400 hover:text-white transition-colors">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+
+    <div class="p-8 w-full text-2xl font-bold">    
+        Oups, le CV n'est pas disponible pour le moment!         
+    </div>
+
+    <p class="mt-8 text-gray-500 text-[10px] text-center uppercase tracking-widest">Wasfade Tonoukoin • Portfolio</p>
   </div>
 </div>
 
@@ -907,8 +927,12 @@
       }
     });
 
+    function openCV(){
+      document.getElementById("ZoneCV").classList.remove("hidden");
+    }
     function closeModal(){
       document.getElementById("modalShare").classList.add("hidden");
+      document.getElementById("ZoneCV").classList.add("hidden");
     }
 
     //paratge si le modèle de téléphone ne travaille pas.
