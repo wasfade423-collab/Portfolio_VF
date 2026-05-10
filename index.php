@@ -181,18 +181,17 @@
   class="relative bg-background text-on-background font-body-md overflow-x-hidden max-md:antialiased">
   <!-- TopNavBar -->
   <nav
-    class="fixed top-0 w-screen z-50 bg-neutral-950/80 backdrop-blur-xl border-b border-white/10 h-[12vh] max-md:h-auto">
-    <div
-      class="flex justify-between items-center md:max-w-8lg max-md:w-full mx-auto px-8 h-28">
+    class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl border-b border-white/10 flex flex-row justify-center items-center h-[15vh]">
+    <div class="flex justify-between items-center w-full md:max-w-8xl mx-auto px-4 md:px-8 h-28">
       <div
-        class="text-2xl flex flex-row gap-4 items-center justify-center font-bold tracking-tighter text-white font-['Space_Grotesk']">
-        <div class="w-14 h-auto">
+        class="text-2xl max-md:text-lg flex flex-row gap-4 max-md:gap-2 items-center justify-center font-bold tracking-tighter text-white font-['Space_Grotesk']">
+        <div class="w-14 max-md:w-12 h-auto">
           <img
             src="assets/images/logo.webp"
             class="w-full flter brightness-[0.5] saturate-[1.3]"
             alt="DEV WASFADE Logo" />
         </div>
-        <span class="flex gap-0 leading-[1] flex-col justify-center gap-0">
+        <span class="flex gap-0 leading-[1] max-md:text-sm flex-col justify-center gap-0">
           <span translate="no">DEV</span>
           <span>WASFADE</span>
         </span>
@@ -232,10 +231,12 @@
         <span class="text-3xl"><i class="ri-menu-line"></i></span>
       </button>
     </div>
+
+    <!-- MENU Mobile-->
     <div
-      class="navMobile absolute z-1000 bg-[#14121a] text-2xl px-4 pt-4 translate-x-[-100%] transition-alls duration-500 max-md:flex flex-row justify-between h-screen items-start top-0 w-[80%]">
+      class="navMobile absolute top-0 left-0 z-1000 bg-[#14121a] text-2xl px-4 pt-4 translate-x-[-100%] transition-alls duration-500 max-md:flex flex-row justify-between h-dvh items-start top-0 w-[80%]">
       <ul
-        class="mt-4 max-md:flex flex-col gap-4 text-3xl font-medium tracking-tight">
+        class="mt-4 max-md:flex flex-col gap-4 text-4lg font-medium tracking-tight">
         <li>
           <a
             class="text-lime-400 lien border-lime-400 border-b-2 pb-1 active:scale-95 transform transition-all"
@@ -277,33 +278,34 @@
     <!-- Hero Section -->
     <section
       id="hero"
-      class="mt-5 relative min-h-screen flex items-center pt-20 max-md:pt-40 px-6 max-w-[1550px] mx-auto">
+      class="mt-5 overflow-hidden relative min-h-screen flex items-center pt-20 max-md:pt-40 px-6 max-w-[1550px] mx-auto">
       <!-- Background Accents -->
       <div
         class="absolute top-1/4 -left-20 w-96 h-96 bg-primary-container/20 blur-[120px] rounded-full -z-10"></div>
       <div
-        class="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary/10 blur-[120px] rounded-full -z-10"></div>
+        class="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary/10 blur-[120px] rounded-full -z-10">
+      </div>
       <div class="grid md:grid-cols-2 grid-cols-1 gap-12 items-center w-full">
         <div class="space-y-8 max-md:order-2">
           <div
             class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant">
             <span
               class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-            <span class="text-label-caps text-secondary">Disponible pour de nouveaux projets</span>
+            <span class="text-label-caps text-secondary max-md:text-[10px]">Disponible pour de nouveaux projets</span>
           </div>
           <h1 class="font-h1 text-h1 text-white leading-tight max-md:text-h3">
-            Concevoir des expériences numériques de
+            Conception des expériences numériques de
             <span class="text-primary italic">haute performance</span> 
           </h1>
-          <p class="text-body-lg text-on-surface-variant max-w-lg">
-            Je suis développeur Web &amp; Mobile senior, spécialisé dans la conception d'architectures robustes et d'interfaces utilisateur intuitives. Je transforme les problèmes complexes en solutions élégantes et évolutives.
+          <p class="max-md:text-body-[16px] md:text-body-lg text-on-surface-variant max-w-lg">
+            Je suis développeur Web & Mobile senior, spécialisé dans la conception d'architectures robustes et d'interfaces utilisateur intuitives. Je transforme les problèmes complexes en solutions élégantes et évolutives.
           </p>
           <div
             class="flex gap-4 max-md:justify-between max-md:items-center max-md:text-sm">
             <button
               class="bg-primary-container text-white px-8 py-4 max-md:py-2 max-md:px-3 rounded-xl font-bold flex items-center gap-2 hover:scale-105 transition-transform active:scale-95 shadow-xl">
-              Voir Projets
-              <i class="ri-arrow-right-line"></i>
+              <a href="#projet">Voir Projets</a>
+              <i class="ri-arrow-right-line max-md:hidden"></i>
             </button>
             <button
               class="border border-secondary text-secondary px-8 py-4 max-md:py-2 max-md:px-3 rounded-xl font-bold hover:bg-secondary/10 transition-colors active:scale-95">
@@ -323,11 +325,11 @@
           </div>
           <!-- Nombes pour faire genre-->
           <div
-            class="absolute -bottom-6 -left-6 glass-card p-6 max-md:p-3 rounded-2xl border border-white/20 shadow-2xl">
+            class="absolute -bottom-6 -left-6 max-md:-left-3 glass-card p-6 max-md:p-3 rounded-2xl border border-white/20 shadow-2xl">
             <div class="flex items-center gap-4">
-              <div class="p-6 max-md:p-3 bg-secondary/20 rounded-lg">
+              <div class="p-6 max-md:p-3 w-10 h-10 md:w-16 md:h-16 bg-secondary/20 rounded-lg">
                 <i
-                  class="ri-terminal-fill font-medium text-2xl max-md:text-xl"></i>
+                  class="ri-terminal-fill font-medium text-2xl max-md:text-lg"></i>
               </div>
               <div translate="no">
                 <div class="text-white font-bold text-xl">25+</div>
@@ -343,16 +345,16 @@
     </section>
 
     <!-- Compétences Section -->
-    <section class="py-xxl pt-40 px-6 max-w-7xl mx-auto" id="skills">
+    <section class="py-xxl max-md:py-[15vh] pt-40 px-6 max-md:px-[2%] md:max-w-7xl max-md:max-w-full mx-auto" id="skills">
       <div class="text-center mb-16">
-        <h2 class="font-h2 text-h2 text-white mb-4">
+        <h2 class="font-h2 text-h2 max-md:text-4xl text-white mb-4">
           <span class="text-secondary">Compétences</span> Techniques
         </h2>
-        <p class="text-on-surface-variant max-w-2xl mx-auto">
+        <p class="text-on-surface-variant pt-2 max-w-2xl mx-auto">
           Une liste suscinte de mes compétences dans le domaine de l'<b>Informatique</b>
         </p>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 max-md:gap-4">
         <!-- Expert Item -->
         <div
           class="glass-card p-6 rounded-xl border-l-4 flex flex-col items-center justify-center text-center group hover:bg-surface-container-high transition-colors">
@@ -419,22 +421,22 @@
       </div>
     </section>
     <!-- Services Section -->
-    <section class="py-xxl pt-40 bg-surface-container-low px-6" id="services">
+    <section class="py-xxl max-md:py-[15vh] pt-40 bg-surface-container-low px-6" id="services">
       <div class="max-w-[1550px] mx-auto">
         <div
           class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
             <h2 class="font-h2 text-h2 text-white mb-4">
-              <span class="text-primary">Services</span>
+              <span class="text-primary max-md:text-center">Services</span>
             </h2>
-            <p class="text-on-surface-variant max-w-lg">
+            <p class="text-on-surface-variant max-w-lg max-md:text-[10px]">
               Je conçois des solutions technologiques sur mesure, conçues pour
               l'évolutivité, la performance et l'impact.
             </p>
           </div>
           <div
             class="h-1 flex-1 bg-outline-variant/30 mb-4 mx-12 hidden md:block"></div>
-          <div class="text-secondary font-bold text-h3 tracking-tighter">
+          <div class="text-secondary font-bold text-h3 tracking-tighter max-md:text-lg">
             04 Pillers Majeures
           </div>
         </div>
@@ -443,19 +445,19 @@
           <div
             class="glass-card p-8 rounded-3xl hover:bg-surface-container-highest transition-all group flex flex-col">
             <div
-              class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+              class="w-16 h-16 max-md:w-12 max-md:h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
               <!-- <span
                   translate="no"
                   class="material-symbols-outlined text-primary text-4xl"
                   >web</span
                 > -->
-              <i class="ri-pages-line text-primary text-4xl"></i>
+              <i class="ri-pages-line text-primary text-4xl max-md:text-2xl"></i>
             </div>
-            <h3 class="font-h3 text-h3 text-white mb-4">Web Dev</h3>
+            <h3 class="font-h3 text-h3 text-white mb-4" translate="no">Web Dev</h3>
             <ul class="space-y-3 text-on-surface-variant flex-1">
               <li class="flex items-center gap-2">
                 <span class="w-1 h-1 bg-secondary rounded-full"></span>
-                PSites de Portfolio
+                Sites de Portfolio
               </li>
               <li class="flex items-center gap-2">
                 <span class="w-1 h-1 bg-secondary rounded-full"></span>
@@ -471,8 +473,8 @@
           <div
             class="glass-card p-8 rounded-3xl hover:bg-surface-container-highest transition-all group flex flex-col">
             <div
-              class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-              <i class="ri-smartphone-line text-secondary text-4xl"></i>
+              class="w-16 h-16 max-md:w-12 max-md:h-12 bg-secondary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+              <i class="ri-smartphone-line text-secondary text-4xl max-md:text-2xl"></i>
             </div>
             <h3 class="font-h3 text-h3 text-white mb-4">
               Conception d'application
@@ -496,8 +498,8 @@
           <div
             class="glass-card p-8 rounded-3xl hover:bg-surface-container-highest transition-all group flex flex-col">
             <div
-              class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-              <i class="ri-psychotherapy-line text-primary text-4xl"></i>
+              class="w-16 h-16 max-md:w-12 max-md:h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+              <i class="ri-psychotherapy-line text-primary text-4xl max-md:text-2xl"></i>
             </div>
             <h3 class="font-h3 text-h3 text-white mb-4" translate="no">
               IA &amp; Datas
@@ -521,8 +523,8 @@
           <div
             class="glass-card p-8 rounded-3xl hover:bg-surface-container-highest transition-all group flex flex-col">
             <div
-              class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-              <i class="ri-graduation-cap-line text-secondary text-4xl"></i>
+              class="w-16 h-16 max-md:w-12 max-md:h-12 bg-secondary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+              <i class="ri-graduation-cap-line text-secondary text-4xl max-md:text-2xl"></i>
             </div>
             <h3 class="font-h3 text-h3 text-white mb-4">Support</h3>
             <ul class="space-y-3 text-on-surface-variant flex-1">
@@ -545,7 +547,7 @@
     </section>
 
     <!-- Projects / Stats Section -->
-    <section class="py-xxl px-6" id="projects">
+    <section id="projet" class="py-xxl max-md:py-[15vh] px-6" id="projects">
       <div class="max-w-[1550px] mx-auto">
         <div class="grid md:grid-cols-3 gap-8">
           <div
@@ -574,22 +576,22 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="pb-xxl pt-40 px-6 max-w-[1550px] mx-auto" id="contact">
-      <div class="grid md:grid-cols-2 gap-16 items-center">
+    <section class="pb-xxl max-md:py-[15vh] pt-40 px-6 max-md:px-[4%] max-w-[1550px] mx-auto" id="contact">
+      <div class="grid md:grid-cols-2 gap-16 max-md:gap-10 items-center">
         <div>
           <h2 class="font-h2 text-h2 text-white mb-6">
-            <span class="text-primary">Collaborons!</span>
+            <span class="text-primary max-md:text-center">Collaborons!</span>
           </h2>
           <p
-            class="text-body-lg text-on-surface-variant mb-12 max-md:text-[14px]">
+            class="text-body-lg max-md:text-[10px] text-on-surface-variant mb-12">
             Projet, collaboration ou simple échange d'idées ? Discutons-en !
             Contactez-moi via mes réseaux ou directement via le formulaire
             ci-dessous.
           </p>
           <div class="space-y-8">
-            <div class="flex items-center gap-6 group">
+            <div class="flex items-center gap-6 max-md:gap-3 group">
               <div
-                class="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center border border-secondary/20 group-hover:bg-secondary group-hover:text-on-secondary transition-all">
+                class="w-14 h-14 max-md:w-12 max-md:h-12 bg-secondary/10 rounded-xl flex items-center justify-center border border-secondary/20 group-hover:bg-secondary group-hover:text-on-secondary transition-all">
                 <i class="ri-mail-line"></i>
               </div>
               <div>
@@ -597,14 +599,14 @@
                   class="text-sm font-bold text-on-surface-variant uppercase tracking-widest">
                   Envoyez moi un Mail
                 </div>
-                <div class="text-xl max-md:text-lg font-bold text-white">
-                  <a href="mailto:wafadetonoukoin@gmail.com">wafadetonoukoin@gmail.com</a>
+                <div class="text-xl font-bold text-white max-md:text-[12px]">
+                  <a href="mailto:wasfadetonoukoin@gmail.com">wasfadetonoukoin@gmail.com</a>
                 </div>
               </div>
             </div>
-            <div class="flex items-center gap-6 group">
+            <div class="flex items-center gap-6 max-md:gap-3 group">
               <div
-                class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 group-hover:bg-primary group-hover:text-on-primary transition-all">
+                class="w-14 h-14 max-md:w-12 max-md:h-12 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 group-hover:bg-primary group-hover:text-on-primary transition-all">
                 <i class="ri-question-answer-line"></i>
               </div>
               <div>
@@ -612,14 +614,14 @@
                   class="text-sm font-bold text-on-surface-variant uppercase tracking-widest">
                   Whatsapp
                 </div>
-                <div class="text-xl max-md:text-lg font-bold text-white">
+                <div class="text-xl max-md:text-[12px] font-bold text-white max-md:text-[12px]">
                   <a href="https://wa.me/2200194853019">+220 01 94 85 30 19</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <form class="glass-card p-10 rounded-[2rem] space-y-6" action="traitement/traitement.php" method = "POST">
+        <form class="glass-card p-10 max-md:p-5 rounded-[2rem] space-y-6" action="traitement/traitement.php" method = "POST">
           <?php if (isset($_SESSION["succes"])) { ?>
 
             <div class="text-center text-emerald-500 text-lg font-light"><?= $_SESSION["succes"] ?? "" ?></div>
@@ -631,7 +633,7 @@
             <div class="space-y-2">
               <label
                 for="prenom"
-                class="text-xs font-bold text-on-surface-variant uppercase ml-1">First Name</label>
+                class="text-xs font-bold text-on-surface-variant uppercase ml-1">Nom</label>
               <input
                 id="prenom"
                 name="prenom"
@@ -644,7 +646,7 @@
             <div class="space-y-2">
               <label
                 for="nom"
-                class="text-xs font-bold text-on-surface-variant uppercase ml-1">Last Name</label>
+                class="text-xs font-bold text-on-surface-variant uppercase ml-1">Prénom</label>
               <input
                 id="nom"
                 name="nom"
@@ -694,7 +696,7 @@
               <span class="text-red-500 font-medium text-xs"><?= @$_SESSION["error"]["message"] ?? "" ?></span>
           </div>
           <button
-            class="w-full bg-primary-container text-white py-5 rounded-xl font-bold text-lg hover:shadow-[0_0_30px_rgba(77,40,185,0.5)] transition-all active:scale-95">
+            class="w-full bg-primary-container text-white py-5 max-md:py-3 rounded-xl font-bold text-lg hover:shadow-[0_0_30px_rgba(77,40,185,0.5)] transition-all active:scale-95">
             Envoyer le message
           </button>
         </form>
@@ -703,25 +705,25 @@
   </main>
   <!-- Footer -->
   <footer
-    class="bg-neutral-900 w-screen pt-16 pb-5 px-4 border-t border-white/5 md:px-[8%]">
+    class="bg-neutral-900 w-full pt-16 pb-5 max-md:px-2 border-t border-white/5 md:px-[8%]">
     <div
       class="flex items-start gap-6 flex-row items-center md:px-8 max-md:px-4 justify-between">
       <div
-        class="text-2xl flex flex-row gap-4 items-center justify-center font-bold tracking-tighter text-white font-['Space_Grotesk']">
-        <div class="w-14 h-auto">
+        class="text-2xl max-md:text-lg flex flex-row gap-4 max-md:gap-2 items-center justify-center font-bold tracking-tighter text-white font-['Space_Grotesk']">
+        <div class="w-14 max-md:w-12 h-auto">
           <img
             src="assets/images/logo.webp"
             class="w-full flter brightness-[0.5] saturate-[1.3]"
             alt="DEV WASFADE Logo" />
         </div>
-        <span class="flex gap-0 leading-[1] flex-col justify-center gap-0">
+        <span class="flex gap-0 leading-[1] max-md:text-sm flex-col justify-center gap-0">
           <span translate="no">DEV</span>
           <span>WASFADE</span>
         </span>
       </div>
       <div class="flex flex-col gap-2">
-        <h3 class="mb-2 border-b-2 border-secondary/60 max-md:capitalize">NAVIGATION</h3>
-        <ul class="nav-menu leading-relaxed text-on-surface-variant">
+        <h3 class="mb-2 border-b-2 max-md:text-sm border-secondary/60 max-md:capitalize">NAVIGATION</h3>
+        <ul class="nav-menu leading-relaxed max-md:leading-[1.4] max-md:text-xs text-on-surface-variant">
           <li>
             <a
               href="#hero"
@@ -749,20 +751,19 @@
     </div>
     <div
       class="text-center mt-15 text-neutral-600 text-[10px] tracking-[0.2em] uppercase md:flex md:items-center md:flex-row md:justify-between">
-      <p class="copyright mt-10">
+      <p class="copyright mt-10 max-md:text-xs">
         &copy; 2026 WASFADE TONOUKOIN| DÉVELOPPEMENT WEB & MOBILE. TOUS DROITS
         RÉSERVÉS.
       </p>
-      <p class="author">WALFRECHERCHE LOWEEN</p>
     </div>
   </footer>
 
   <!-- Bouton de partage fixe -->
   <button
     id="partageBtn"
-    class="fixed bottom-6 right-6 p-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 flex items-center justify-center z-50"
+    class="fixed bottom-6 right-6 p-4 max-md:p-3 w-18 h-18 max-md:w-14 max-md:h-14 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 flex items-center justify-center z-50"
     title="Partager le site">
-    <i class="ri-share-fill text-3xl"></i>
+    <i class="ri-share-fill text-3xl max-md:text-3lg"></i>
   </button>
 
   <!-- Partage zone -->
