@@ -7,17 +7,18 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>DevPortfolio | Modern Web &amp; Mobile Developer</title>
+  <title>DevPortfolio | Développeur Web & Mobile Moderne</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
     rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
     rel="stylesheet" />
   <link
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
     rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/sortie.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
     rel="stylesheet" />
@@ -180,10 +181,9 @@
   class="relative bg-background text-on-background font-body-md overflow-x-hidden max-md:antialiased">
   <!-- TopNavBar -->
   <nav
-    class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl border-b border-white/10"
-    style="height: 12vh">
+    class="fixed top-0 w-screen z-50 bg-neutral-950/80 backdrop-blur-xl border-b border-white/10 h-[12vh] max-md:h-auto">
     <div
-      class="flex justify-between items-center max-w-8lg mx-auto px-8 h-28">
+      class="flex justify-between items-center md:max-w-8lg max-md:w-full mx-auto px-8 h-28">
       <div
         class="text-2xl flex flex-row gap-4 items-center justify-center font-bold tracking-tighter text-white font-['Space_Grotesk']">
         <div class="w-14 h-auto">
