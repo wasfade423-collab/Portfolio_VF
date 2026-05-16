@@ -405,7 +405,7 @@
           </p>
           <div class="space-y-8">
             <div class="flex items-center gap-6 max-md:gap-3 group">
-              <div class="w-14 h-14 max-md:w-12 max-md:h-12 bg-secondary/10 rounded-xl flex items-center justify-center border border-secondary/20 group-hover:bg-secondary group-hover:text-on-secondary transition-all"><i class="ri-mail-line"></i></div>
+              <div class="w-14 h-14 max-md:w-12 max-mdindex-:h-12 bg-secondary/10 rounded-xl flex items-center justify-center border border-secondary/20 group-hover:bg-secondary group-hover:text-on-secondary transition-all"><i class="ri-mail-line"></i></div>
               <div>
                 <div class="text-sm font-bold text-on-surface-variant uppercase tracking-widest">Mail</div>
                 <div class="text-xl font-bold text-white max-md:text-[12px]"><a href="mailto:wasfadetonoukoin@gmail.com">wasfadetonoukoin@gmail.com</a></div>
@@ -422,7 +422,7 @@
         </div>
 
         <div class="contact-form-anime">
-          <form class="glass-card p-10 max-md:p-5 rounded-[2rem] space-y-6" action="traitement/traitement.php" method="POST">
+          <form class="glass-card p-10 max-md:p-5 rounded-[2rem] space-y-6" action="" method="POST">
             <?php if (isset($_SESSION["succes"])) { ?>
               <div class="text-center text-emerald-500 text-lg font-light"><?= $_SESSION["succes"] ?></div>
             <?php } ?> 
@@ -433,31 +433,31 @@
             <div class="grid md:grid-cols-2 max-md:grid-cols-1 gap-6">
               <div class="space-y-2">
                 <label for="prenom" class="text-xs font-bold text-on-surface-variant uppercase ml-1">Nom</label>
-                <input id="prenom" name="prenom" class="w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Wasfade" value="<?= @$_SESSION["prenom"] ?>" type="text" />
-                <span class="text-red-500 font-medium text-xs"><?= @$_SESSION["error"]["prenom"] ?? "" ?></span>
+                <input id="prenom" name="prenom" class="form-champs w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Wasfade" value="<?= @$_SESSION["prenom"] ?>" type="text" />
+                <span class="text-red-500 font-medium text-xs form-errors"></span>
               </div>
               <div class="space-y-2">
                 <label for="nom" class="text-xs font-bold text-on-surface-variant uppercase ml-1">Prénom</label>
-                <input id="nom" name="nom" class="w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Tonoukoin" value="<?= @$_SESSION["nom"] ?>" type="text" />
-                <span class="text-red-500 font-medium text-xs"><?= @$_SESSION["error"]["nom"] ?? "" ?></span>
+                <input id="nom" name="nom" class="form-champs w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Tonoukoin" value="<?= @$_SESSION["nom"] ?>" type="text" />
+                <span class="text-red-500 font-medium text-xs form-errors"></span>
               </div>
             </div>
             <div class="space-y-2">
               <label for="email" class="text-xs font-bold text-on-surface-variant uppercase ml-1">Adresse mail</label>
-              <input id="email" name="email" class="w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="wasfade@example.com" value="<?= @$_SESSION["email"] ?>" type="email" />
-              <span class="text-red-500 font-medium text-xs"><?= @$_SESSION["error"]["email"] ?? "" ?></span>
+              <input id="email" name="email" class="form-champs w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="wasfade@example.com" value="<?= @$_SESSION["email"] ?>" type="email" />
+              <span class="text-red-500 font-medium text-xs form-errors"></span>
             </div>
             <div class="space-y-2">
               <label for="subject" class="text-xs font-bold text-on-surface-variant uppercase ml-1">Sujet</label>
-              <input id="subject" name="subject" class="w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Sujet du message" value="<?= @$_SESSION["subject"] ?>" type="text" />
-              <span class="text-red-500 font-medium text-xs"><?= @$_SESSION["error"]["subject"] ?? "" ?></span>
+              <input id="subject" name="subject" class="form-champs w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Sujet du message" value="<?= @$_SESSION["subject"] ?>" type="text" />
+              <span class="text-red-500 font-medium text-xs form-errors"></span>
             </div>
             <div class="space-y-2">
               <label for="message" class="text-xs font-bold text-on-surface-variant uppercase ml-1">Message</label>
-              <textarea id="message" name="message" class="w-full resize-y bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Comment pourrais-je vous aider?" rows="4"><?= @$_SESSION["message"] ?></textarea>
-              <span class="text-red-500 font-medium text-xs"><?= @$_SESSION["error"]["message"] ?? "" ?></span>
+              <textarea id="message" name="message" class="w-full form-champs resize-y bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Comment pourrais-je vous aider?" rows="4"><?= @$_SESSION["message"] ?></textarea>
+              <span class="text-red-500 font-medium text-xs form-errors"></span>
             </div>
-            <button class="w-full bg-primary-container text-white py-5 max-md:py-3 rounded-xl font-bold text-lg hover:shadow-[0_0_30px_rgba(77,40,185,0.5)] transition-all active:scale-95">
+            <button id="submit" type="button" class="w-full bg-primary-container text-white py-5 max-md:py-3 rounded-xl font-bold text-lg hover:shadow-[0_0_30px_rgba(77,40,185,0.5)] transition-all active:scale-95">
               Envoyer le message
             </button>
           </form>
@@ -630,7 +630,49 @@
       if (shareUrl !== "") window.open(shareUrl, "_blank", "width=600,height=450");
     }
   </script>
-  <script src="taitement/form.js"></script>
-  <?php session_unset(); ?>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    function traitement(){
+      let email = document.getElementById("email").value;
+      let leschamps = document.querySelectorAll(".form-champs");
+      let formerrors = document.querySelectorAll(".form-errors");
+      let retour = true;
+      for(let i = 0; i < leschamps.length; i++){
+        if(leschamps[i].value.trim() == "" || leschamps[i].value.trim().length < 2){
+          formerrors[i].textContent = "Vous devez remplir ce ha avec au moins 2 caractères.";
+          retour = false; 
+        }
+      }
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if(!regex.test(email)){
+          formerrors[2].textContent = "Adresse Mail invalide.";
+          retour = false;
+      }  
+      return retour;  
+    }
+    document.getElementById("submit").addEventListener('click', ()=>{
+      if(traitement()){
+
+          console.log(1);
+          let nom = document.getElementById("nom").value;
+          let prenom = document.getElementById("prenom").value;
+          let subject = document.getElementById("subject").value;
+          let message = document.getElementById("message").value;
+          let email = document.getElementById("email").value;
+          let datas = {'nom': nom, 'prenom': prenom, 'subject': subject, 'message': message, 'email': email};
+          emailjs.init("IGsJw5AbGmyrIcy87");
+          emailjs.send("service_mwcklmp", "template_hzkkpv9", datas)
+              .then(function(response){
+                  console.log("succes");
+              },
+              function(error){
+                  console.log("echec");
+              }
+          )
+      }else{
+        console.log("validation éhouée.");
+      }
+    })    
+  </script>
 </body>
 </html>
