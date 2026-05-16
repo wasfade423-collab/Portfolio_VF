@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /traitement/
 
-Sitemap: https://ton-site.infinityfreeapp.com/sitemap.xml
+Sitemap: https://wasfolio.vercel.app/sitemap.xml
