@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /traitement/
+
+Sitemap: https://ton-site.infinityfreeapp.com/sitemap.xml
