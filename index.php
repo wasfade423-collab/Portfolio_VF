@@ -2,7 +2,7 @@
 
 <!doctype html>
 
-<html class="dark" lang="en" style="scroll-behavior: smooth">
+<html class="dark" lang="fr" style="scroll-behavior: smooth">
 
 <head>
   <meta charset="utf-8" />
@@ -14,15 +14,16 @@
     href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
     rel="stylesheet" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/sortie.css">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-    rel="stylesheet" />
+  
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
   <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
@@ -158,186 +159,106 @@
     };
   </script>
   <style>
-    . {
-      font-variation-settings:
-        "FILL" 0,
-        "wght" 400,
-        "GRAD" 0,
-        "opsz" 24;
-    }
-
     .glass-card {
       background: rgba(32, 30, 39, 0.6);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease-in-out;
     }
-
+    /* Petite interaction au survol de tes cartes */
+    .glass-card:hover {
+      border-color: rgba(203, 190, 255, 0.2);
+      transform: translateY(-4px);
+    }
     .text-glow-primary {
       text-shadow: 0 0 15px rgba(203, 190, 255, 0.3);
     }
   </style>
 </head>
 
-<body
-  class="relative bg-background text-on-background font-body-md overflow-x-hidden max-md:antialiased">
-  <!-- TopNavBar -->
-  <nav
-    class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl border-b border-white/10 flex flex-row justify-center items-center h-[15vh]">
+<body class="relative bg-background text-on-background font-body-md overflow-x-hidden max-md:antialiased">
+  
+  <nav class="fixed top-0 w-full z-50 bg-neutral-950/80 backdrop-blur-xl border-b border-white/10 flex flex-row justify-center items-center h-[15vh] max-md:h-[10vh]">
     <div class="flex justify-between items-center w-full md:max-w-8xl mx-auto px-4 md:px-8 h-28">
-      <div
-        class="text-2xl max-md:text-lg flex flex-row gap-4 max-md:gap-2 items-center justify-center font-bold tracking-tighter text-white font-['Space_Grotesk']">
-        <div class="w-14 max-md:w-12 h-auto">
-          <img
-            src="assets/images/logo.webp"
-            class="w-full flter brightness-[0.5] saturate-[1.3]"
-            alt="DEV WASFADE Logo" />
+      <div class="text-2xl max-md:text-lg flex flex-row gap-4 max-md:gap-2 items-center justify-center font-bold tracking-tighter text-white font-['Space_Grotesk']">
+        <div class="w-14 max-md:w-[35px] h-auto">
+          <img src="assets/images/logo.webp" class="w-full flter brightness-[0.5] saturate-[1.3]" alt="DEV WASFADE Logo" />
         </div>
-        <span class="flex gap-0 leading-[1] max-md:text-sm flex-col justify-center gap-0">
+        <span class="flex gap-0 leading-[1] max-md:text-[14px] flex-col justify-center">
           <span translate="no">DEV</span>
           <span>WASFADE</span>
         </span>
       </div>
 
-      <!-- MENU PC-->
-      <div
-        class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] font-medium tracking-tight">
-        <a
-          class="text-lime-400 lien border-lime-400 border-b-2 pb-1 active:scale-95 transform transition-all"
-          href="#hero"
-          translate="no">
-          Home
-        </a>
-
-        <a
-          class="text-neutral-400 border-transparent border-b-2 lien hover:text-violet-400 pb-1 transition-colors duration-200 active:scale-95 transform transition-all"
-          href="#skills"
-          translate="no">Skills</a>
-
-        <a
-          class="text-neutral-400 border-transparent border-b-2 lien hover:text-violet-400 pb-1 transition-colors duration-200 active:scale-95 transform transition-all"
-          href="#services">Services</a>
-        <a
-          class="text-neutral-400 border-transparent border-b-2 lien hover:text-violet-400 pb-1 transition-colors duration-200 active:scale-95 transform transition-all"
-          href="#contact">Contact</a>
-
-        <button
-          class="bg-primary-container text-white px-6 py-2 rounded-lg font-bold hover:shadow-[0_0_20px_rgba(77,40,185,0.4)] transition-all active:scale-95">
+      <div class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] font-medium tracking-tight">
+        <a class="text-lime-400 lien border-lime-400 border-b-2 pb-1 active:scale-95 transform transition-all" href="#hero" translate="no">Home</a>
+        <a class="text-neutral-400 border-transparent border-b-2 lien hover:text-violet-400 pb-1 transition-colors duration-200 active:scale-95 transform transition-all" href="#skills" translate="no">Skills</a>
+        <a class="text-neutral-400 border-transparent border-b-2 lien hover:text-violet-400 pb-1 transition-colors duration-200 active:scale-95 transform transition-all" href="#services">Services</a>
+        <a class="text-neutral-400 border-transparent border-b-2 lien hover:text-violet-400 pb-1 transition-colors duration-200 active:scale-95 transform transition-all" href="#contact">Contact</a>
+        <button class="bg-primary-container text-white px-6 py-2 rounded-lg font-bold hover:shadow-[0_0_20px_rgba(77,40,185,0.4)] transition-all active:scale-95">
           <a href="https://wa.me/2290194853019?text=Projet..." target="_blank" rel="noopener noreferrer">Hire Me</a>
         </button>
       </div>
 
-      <button
-        id="burger"
-        class="md:hidden p-2 text-white active:scale-90 transition-transform">
-        <span class="text-3xl"><i class="ri-menu-line"></i></span>
+      <button id="burger" class="md:hidden p-2 text-white active:scale-90 transition-transform">
+        <span class="text-3xl max-md:text-2xl"><i class="ri-menu-line"></i></span>
       </button>
     </div>
 
-    <!-- MENU Mobile-->
-    <div
-      class="navMobile absolute top-0 left-0 z-1000 bg-[#14121a] text-2xl px-4 pt-4 translate-x-[-100%] transition-alls duration-500 max-md:flex flex-row justify-between h-dvh items-start top-0 w-[80%]">
-      <ul
-        class="mt-4 max-md:flex flex-col gap-4 text-4lg font-medium tracking-tight">
-        <li>
-          <a
-            class="text-lime-400 lien border-lime-400 border-b-2 pb-1 active:scale-95 transform transition-all"
-            href="#hero"
-            translate="no">
-            Home
-          </a>
-        </li>
-        <li>
-          <a
-            class="text-neutral-400 border-transparent border-b-2 lien hover:text-violet-400 pb-1 transition-colors duration-200 active:scale-95 transform transition-all"
-            href="#skills"
-            translate="no">Skills</a>
-        </li>
-        <li>
-          <a
-            class="text-neutral-400 border-transparent border-b-2 lien hover:text-violet-400 pb-1 transition-colors duration-200 active:scale-95 transform transition-all"
-            href="#services">
-            Services
-          </a>
-        </li>
-        <li>
-          <a
-            class="text-neutral-400 border-transparent border-b-2 lien hover:text-violet-400 pb-1 transition-colors duration-200 active:scale-95 transform transition-all"
-            href="#contact" translate="no">
-            Contact
-          </a>
-        </li>
+    <div class="navMobile absolute top-0 left-0 z-1000 bg-[#14121a] text-2xl px-4 pt-4 translate-x-[-100%] transition-all duration-500 max-md:flex flex-row justify-between h-dvh items-start top-0 w-[80%]">
+      <ul class="mt-4 max-md:flex flex-col gap-4 text-4lg font-medium tracking-tight">
+        <li><a class="text-lime-400 lien border-lime-400 border-b-2 pb-1 active:scale-95 transform transition-all" href="#hero" translate="no">Home</a></li>
+        <li><a class="text-neutral-400 border-transparent border-b-2 lien hover:text-violet-400 pb-1 transition-colors duration-200 active:scale-95 transform transition-all" href="#skills" translate="no">Skills</a></li>
+        <li><a class="text-neutral-400 border-transparent border-b-2 lien hover:text-violet-400 pb-1 transition-colors duration-200 active:scale-95 transform transition-all" href="#services">Services</a></li>
+        <li><a class="text-neutral-400 border-transparent border-b-2 lien hover:text-violet-400 pb-1 transition-colors duration-200 active:scale-95 transform transition-all" href="#contact" translate="no">Contact</a></li>
       </ul>
-
-      <button
-        id="closer"
-        class="md:hidden p-2 text-white active:scale-90 transition-transform">
-        <i class="ri-close-large-fill"></i>
+      <button id="closer" class="md:hidden p-2 text-white active:scale-90 transition-transform">
+        <i class="ri-close-large-fill max-md:text-2xl"></i>
       </button>
     </div>
   </nav>
+
   <main>
-    <!-- Hero Section -->
-    <section
-      id="hero"
-      class="mt-5 overflow-hidden relative min-h-screen flex items-center pt-20 max-md:pt-40 px-6 max-w-[1550px] mx-auto">
-      <!-- Background Accents -->
-      <div
-        class="absolute top-1/4 -left-20 w-96 h-96 bg-primary-container/20 blur-[120px] rounded-full -z-10"></div>
-      <div
-        class="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary/10 blur-[120px] rounded-full -z-10">
-      </div>
+    <section id="hero" class="mt-5 overflow-hidden relative min-h-screen flex items-center pt-20 max-md:pt-40 px-6 max-w-[1550px] mx-auto">
+      <div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary-container/20 blur-[120px] rounded-full -z-10"></div>
+      <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary/10 blur-[120px] rounded-full -z-10"></div>
+      
       <div class="grid md:grid-cols-2 grid-cols-1 gap-12 items-center w-full">
-        <div class="space-y-8 max-md:order-2">
-          <div
-            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant">
-            <span
-              class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+        <div class="hero-text-anime space-y-8 max-md:order-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant">
+            <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
             <span class="text-label-caps text-secondary max-md:text-[10px]">Disponible pour de nouveaux projets</span>
           </div>
           <h1 class="font-h1 text-h1 text-white leading-tight max-md:text-h3">
-            Conception des expériences numériques de
-            <span class="text-primary italic">haute performance</span> 
+            Conception des expériences numériques de <span class="text-primary italic">haute performance</span>
           </h1>
           <p class="max-md:text-body-[16px] md:text-body-lg text-on-surface-variant max-w-lg">
-            Je suis développeur Web & Mobile senior, spécialisé dans la conception d'architectures robustes et d'interfaces utilisateur intuitives. Je transforme les problèmes complexes en solutions élégantes et évolutives.
+            Je suis développeur Web & Mobile senior, spécialisé dans la conception d'architectures robustes et d'interfaces utilisateur intuitives.
           </p>
-          <div
-            class="flex gap-4 max-md:justify-between max-md:items-center max-md:text-sm">
-            <button
-              class="bg-primary-container text-white px-8 py-4 max-md:py-2 max-md:px-3 rounded-xl font-bold flex items-center gap-2 hover:scale-105 transition-transform active:scale-95 shadow-xl">
+          <div class="flex gap-4 max-md:justify-between max-md:items-center max-md:text-sm">
+            <button class="bg-primary-container text-white px-8 py-4 max-md:py-2 max-md:px-3 rounded-xl font-bold flex items-center gap-2 hover:scale-105 transition-transform active:scale-95 shadow-xl">
               <a href="#projet">Voir Projets</a>
               <i class="ri-arrow-right-line max-md:hidden"></i>
             </button>
-            <button onclick="openCV()"
-              class="border border-secondary text-secondary px-8 py-4 max-md:py-2 max-md:px-3 rounded-xl font-bold hover:bg-secondary/10 transition-colors active:scale-95">
+            <button onclick="openCV()" class="border border-secondary text-secondary px-8 py-4 max-md:py-2 max-md:px-3 rounded-xl font-bold hover:bg-secondary/10 transition-colors active:scale-95">
               Télécharger le CV
             </button>
           </div>
         </div>
-        <div class="relative group max-md:order-1">
-          <div
-            class="absolute inset-0 bg-primary-container/20 blur-3xl rounded-full scale-75 group-hover:scale-100 transition-transform duration-700"></div>
-          <div
-            class="relative aspect-square rounded-3xl overflow-hidden glass-card p-2 border-white/10">
-            <img
-              class="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-500"
-              data-alt="A professional portrait of a confident male software developer with a modern, high-tech aesthetic. He is wearing a dark, minimal outfit and standing in a studio environment with dramatic, low-key lighting. Subtle deep purple and lime green rim lights highlight his profile, reflecting the brand's primary color palette. The background consists of soft, out-of-focus digital interfaces and code textures, suggesting technical mastery."
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeJ3CHVqQjTuJiWcNs5tU3n8mFTvrL7OJdZJVGGcJn2YlfhRegtZNQQUFUXJTYFVH5sk8oPW4-9C_gRWYVRgDgMJTLxaD4P2jUH1hjZeO3yNhAQ8IbKXGWwp5cxDmv993TzdZdkWjclGePa2RdAUaCvcDBAxAch28lMosy7o4r9GHQQ6YDVbE9FDMRfVSxGbwtHCJai3BuZUD1nOzTZcLWk_6lGh50BC-2ItCbnBsbdOEZf3Iu5mHeg5NVkR7X2Xmm8ZIt-8Jqsfw" />
+
+        <div class="hero-img-anime relative group max-md:order-1">
+          <div class="absolute inset-0 bg-primary-container/20 blur-3xl rounded-full scale-75 group-hover:scale-100 transition-transform duration-700"></div>
+          <div class="relative aspect-square rounded-3xl overflow-hidden glass-card p-2 border-white/10">
+            <img class="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeJ3CHVqQjTuJiWcNs5tU3n8mFTvrL7OJdZJVGGcJn2YlfhRegtZNQQUFUXJTYFVH5sk8oPW4-9C_gRWYVRgDgMJTLxaD4P2jUH1hjZeO3yNhAQ8IbKXGWwp5cxDmv993TzdZdkWjclGePa2RdAUaCvcDBAxAch28lMosy7o4r9GHQQ6YDVbE9FDMRfVSxGbwtHCJai3BuZUD1nOzTZcLWk_6lGh50BC-2ItCbnBsbdOEZf3Iu5mHeg5NVkR7X2Xmm8ZIt-8Jqsfw" />
           </div>
-          <!-- Nombes pour faire genre-->
-          <div
-            class="absolute -bottom-6 -left-6 max-md:-left-3 glass-card p-6 max-md:p-3 rounded-2xl border border-white/20 shadow-2xl">
+          <div class="absolute -bottom-6 -left-6 max-md:-left-3 glass-card p-6 max-md:p-3 rounded-2xl border border-white/20 shadow-2xl">
             <div class="flex items-center gap-4">
               <div class="p-6 max-md:p-3 w-10 h-10 md:w-16 md:h-16 bg-secondary/20 rounded-lg">
-                <i
-                  class="ri-terminal-fill font-medium text-2xl max-md:text-lg"></i>
+                <i class="ri-terminal-fill font-medium text-2xl max-md:text-lg"></i>
               </div>
               <div translate="no">
                 <div class="text-white font-bold text-xl">25+</div>
-                <div
-                  class="text-on-surface-variant text-xs uppercase tracking-widest font-bold">
-                  Commits/Month
-                </div>
+                <div class="text-on-surface-variant text-xs uppercase tracking-widest font-bold">Commits/Month</div>
               </div>
             </div>
           </div>
@@ -345,551 +266,328 @@
       </div>
     </section>
 
-    <!-- Compétences Section -->
-    <section class="py-xxl max-md:py-[15vh] pt-40 px-6 max-md:px-[2%] md:max-w-7xl max-md:max-w-full mx-auto" id="skills">
-      <div class="text-center mb-16">
+
+    <section class="py-xxl max-md:py-[15vh] pt-40 px-6 max-w-7xl mx-auto" id="skills">
+      <div class="text-center mb-16" data-aos="fade-up">
         <h2 class="font-h2 text-h2 max-md:text-4xl text-white mb-4">
           <span class="text-secondary">Compétences</span> Techniques
         </h2>
         <p class="text-on-surface-variant pt-2 max-w-2xl mx-auto">
-          Une liste suscinte de mes compétences dans le domaine de l'<b>Informatique</b>
+          Une liste succincte de mes compétences dans le domaine de l'<b>Informatique</b>
         </p>
       </div>
+
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 max-md:gap-4">
-        <!-- Expert Item -->
-        <div
-          class="glass-card p-6 rounded-xl border-l-4 flex flex-col items-center justify-center text-center group hover:bg-surface-container-high transition-colors">
-          <i class="ri-css3-line text-3xl mb-3 text-[#2965f1]"></i>
-          <span class="font-bold text-white">Tailwind CSS</span>
+        <div class="skill-card glass-card p-6 rounded-xl border-l-4 flex flex-col items-center justify-center text-center hover:bg-surface-container-high">
+          <i class="ri-css3-line text-3xl mb-3 text-[#2965f1]"></i><span class="font-bold text-white">Tailwind CSS</span>
         </div>
-        <!-- Standard Skills -->
-        <div
-          class="glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50 transition-all">
-          <i class="ri-javascript-line text-3xl mb-3 text-[#F7DF1E]"></i>
-          <span class="font-medium text-on-surface">JavaScrip</span>
+        <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50">
+          <i class="ri-javascript-line text-3xl mb-3 text-[#F7DF1E]"></i><span class="font-medium text-on-surface">JavaScript</span>
         </div>
-        <div
-          class="glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50 transition-all">
-          <span class="text-lg text-[#777BB4] mb-4">PHP</span>
-          <span class="font-medium text-on-surface">PHP</span>
+        <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50">
+          <span class="text-lg text-[#777BB4] mb-4 font-bold">PHP</span><span class="font-medium text-on-surface">PHP</span>
         </div>
-        <div
-          class="glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50 transition-all">
-          <i class="ri-database-2-line text-3xl mb-3 text-[#00758F]"></i>
-          <span class="font-medium text-on-surface">SQL</span>
+        <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50">
+          <i class="ri-database-2-line text-3xl mb-3 text-[#00758F]"></i><span class="font-medium text-on-surface">SQL</span>
         </div>
-        <div
-          class="glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50 transition-all">
-          <i class="ri-cloud-windy-line text-3xl mb-3 text-[#00AEEF]"></i>
-          <span class="font-medium text-on-surface" translate="no">Cloud Deploy</span>
+        <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50">
+          <i class="ri-cloud-windy-line text-3xl mb-3 text-[#00AEEF]"></i><span class="font-medium text-on-surface" translate="no">Cloud Deploy</span>
         </div>
-        <div
-          class="glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50 transition-all">
-          <span class="text-md mb-4 text-[#F05032]">GI</span>
-          <span class="font-medium text-on-surface">Gi</span>
+        <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50">
+          <span class="text-md mb-4 text-[#F05032] font-bold">GIT</span><span class="font-medium text-on-surface">Git</span>
         </div>
-        <div
-          class="glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50 transition-all">
-          <span class="text-md mb-4 text-[#1ABCFE]">FIGMA</span>
-          <span class="font-medium text-on-surface">Figma</span>
+        <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50">
+          <span class="text-md mb-4 text-[#1ABCFE] font-bold">FIGMA</span><span class="font-medium text-on-surface">Figma</span>
         </div>
-        <div
-          class="glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50 transition-all">
-          <i class="ri-settings-2-line text-3xl text-[#6366F1] mb-3"></i>
-          <span class="font-medium text-on-surface" translate="no">Data Science</span>
+        <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50">
+          <i class="ri-settings-2-line text-3xl text-[#6366F1] mb-3"></i><span class="font-medium text-on-surface" translate="no">Data Science</span>
         </div>
-        <div
-          class="glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50 transition-all">
-          <i class="ri-webhook-fill text-3xl text-[#00BFFF] mb-3"></i>
-          <span class="font-medium text-on-surface">REST APIs</span>
+        <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50">
+          <i class="ri-webhook-fill text-3xl text-[#00BFFF] mb-3"></i><span class="font-medium text-on-surface">REST APIs</span>
         </div>
-        <div
-          class="glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50 transition-all">
-          <i
-            class="ri-bar-chart-grouped-line text-3xl text-[#00AEEF] mb-3"></i>
-          <span class="font-medium text-on-surface">Django</span>
+        <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50">
+          <i class="ri-bar-chart-grouped-line text-3xl text-[#00AEEF] mb-3"></i><span class="font-medium text-on-surface">Django</span>
         </div>
-        <div
-          class="glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50 transition-all">
-          <span class="text-lg text-[#FF2D20] mb-4">PHP</span>
-          <span class="font-medium text-on-surface">Laravel</span>
+        <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50">
+          <span class="text-lg text-[#FF2D20] mb-4 font-bold">PHP</span><span class="font-medium text-on-surface">Laravel</span>
         </div>
-        <div
-          class="glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50 transition-all">
-          <i class="ri-code-box-fill text-3xl text-[#ED8B00] mb-3"></i>
-          <span class="font-medium text-on-surface">Java</span>
+        <div class="skill-card glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center hover:border-primary/50">
+          <i class="ri-code-box-fill text-3xl text-[#ED8B00] mb-3"></i><span class="font-medium text-on-surface">Java</span>
         </div>
       </div>
     </section>
-    <!-- Services Section -->
+
+
     <section class="py-xxl max-md:py-[15vh] pt-40 bg-surface-container-low px-6" id="services">
       <div class="max-w-[1550px] mx-auto">
-        <div
-          class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6" data-aos="fade-up">
           <div>
-            <h2 class="font-h2 text-h2 text-white mb-4">
-              <span class="text-primary max-md:text-center">Services</span>
-            </h2>
+            <h2 class="font-h2 text-h2 text-white mb-4"><span class="text-primary">Services</span></h2>
             <p class="text-on-surface-variant max-w-lg max-md:text-[10px]">
-              Je conçois des solutions technologiques sur mesure, conçues pour
-              l'évolutivité, la performance et l'impact.
+              Je conçois des solutions technologiques sur mesure, conçues pour l'évolutivité et la performance.
             </p>
           </div>
-          <div
-            class="h-1 flex-1 bg-outline-variant/30 mb-4 mx-12 hidden md:block"></div>
-          <div class="text-secondary font-bold text-h3 tracking-tighter max-md:text-lg">
-            04 Pillers Majeures
-          </div>
+          <div class="h-1 flex-1 bg-outline-variant/30 mb-4 mx-12 hidden md:block"></div>
+          <div class="text-secondary font-bold text-h3 tracking-tighter max-md:text-lg">04 Piliers Majeurs</div>
         </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Web Dev -->
-          <div
-            class="glass-card p-8 rounded-3xl hover:bg-surface-container-highest transition-all group flex flex-col">
-            <div
-              class="w-16 h-16 max-md:w-12 max-md:h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-              <!-- <span
-                  translate="no"
-                  class="material-symbols-outlined text-primary text-4xl"
-                  >web</span
-                > -->
-              <i class="ri-pages-line text-primary text-4xl max-md:text-2xl"></i>
-            </div>
+
+        <div class="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-6">
+          <div class="service-card glass-card p-8 rounded-3xl hover:bg-surface-container-highest flex flex-col">
+            <div class="w-16 h-16 max-md:w-12 max-md:h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-8"><i class="ri-pages-line text-primary text-4xl max-md:text-2xl"></i></div>
             <h3 class="font-h3 text-h3 text-white mb-4" translate="no">Web Dev</h3>
-            <ul class="space-y-3 text-on-surface-variant flex-1">
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-secondary rounded-full"></span>
-                Sites de Portfolio
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-secondary rounded-full"></span>
-                Plateformes de démonstration
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-secondary rounded-full"></span>
-                Applications Web dynamiques
-              </li>
+            <ul class="space-y-3 text-on-surface-variant flex-1 text-sm">
+              <li class="flex items-center gap-2"><span class="w-1 h-1 bg-secondary rounded-full"></span>Sites de Portfolio</li>
+              <li class="flex items-center gap-2"><span class="w-1 h-1 bg-secondary rounded-full"></span>Plateformes de démonstration</li>
+              <li class="flex items-center gap-2"><span class="w-1 h-1 bg-secondary rounded-full"></span>Applications Web dynamiques</li>
             </ul>
           </div>
-          <!-- Mobile Dev -->
-          <div
-            class="glass-card p-8 rounded-3xl hover:bg-surface-container-highest transition-all group flex flex-col">
-            <div
-              class="w-16 h-16 max-md:w-12 max-md:h-12 bg-secondary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-              <i class="ri-smartphone-line text-secondary text-4xl max-md:text-2xl"></i>
-            </div>
-            <h3 class="font-h3 text-h3 text-white mb-4">
-              Conception d'application
-            </h3>
-            <ul class="space-y-3 text-on-surface-variant flex-1">
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-primary rounded-full"></span>
-                Conception d'application
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-primary rounded-full"></span>Design
-                UI/UX Natif"
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-primary rounded-full"></span>
-                Orchestration de projet
-              </li>
+
+          <div class="service-card glass-card p-8 rounded-3xl hover:bg-surface-container-highest flex flex-col">
+            <div class="w-16 h-16 max-md:w-12 max-md:h-12 bg-secondary/10 rounded-2xl flex items-center justify-center mb-8"><i class="ri-smartphone-line text-secondary text-4xl max-md:text-2xl"></i></div>
+            <h3 class="font-h3 text-h3 text-white mb-4">Mobile Dev</h3>
+            <ul class="space-y-3 text-on-surface-variant flex-1 text-sm">
+              <li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span>Conception d'application</li>
+              <li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span>Design UI/UX Natif</li>
+              <li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span>Orchestration de projet</li>
             </ul>
           </div>
-          <!-- Data Science & AI -->
-          <div
-            class="glass-card p-8 rounded-3xl hover:bg-surface-container-highest transition-all group flex flex-col">
-            <div
-              class="w-16 h-16 max-md:w-12 max-md:h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-              <i class="ri-psychotherapy-line text-primary text-4xl max-md:text-2xl"></i>
-            </div>
-            <h3 class="font-h3 text-h3 text-white mb-4" translate="no">
-              IA &amp; Datas
-            </h3>
-            <ul class="space-y-3 text-on-surface-variant flex-1">
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-secondary rounded-full"></span>Modèles
-                de Random Forest
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-secondary rounded-full"></span> AI
-                Assistants
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-secondary rounded-full"></span>
-                Analyse Predictive
-              </li>
+
+          <div class="service-card glass-card p-8 rounded-3xl hover:bg-surface-container-highest flex flex-col">
+            <div class="w-16 h-16 max-md:w-12 max-md:h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-8"><i class="ri-psychotherapy-line text-primary text-4xl max-md:text-2xl"></i></div>
+            <h3 class="font-h3 text-h3 text-white mb-4" translate="no">IA & Datas</h3>
+            <ul class="space-y-3 text-on-surface-variant flex-1 text-sm">
+              <li class="flex items-center gap-2"><span class="w-1 h-1 bg-secondary rounded-full"></span>Modèles Random Forest</li>
+              <li class="flex items-center gap-2"><span class="w-1 h-1 bg-secondary rounded-full"></span>AI Assistants</li>
+              <li class="flex items-center gap-2"><span class="w-1 h-1 bg-secondary rounded-full"></span>Analyse Prédictive</li>
             </ul>
           </div>
-          <!-- Student Support -->
-          <div
-            class="glass-card p-8 rounded-3xl hover:bg-surface-container-highest transition-all group flex flex-col">
-            <div
-              class="w-16 h-16 max-md:w-12 max-md:h-12 bg-secondary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-              <i class="ri-graduation-cap-line text-secondary text-4xl max-md:text-2xl"></i>
-            </div>
+
+          <div class="service-card glass-card p-8 rounded-3xl hover:bg-surface-container-highest flex flex-col">
+            <div class="w-16 h-16 max-md:w-12 max-md:h-12 bg-secondary/10 rounded-2xl flex items-center justify-center mb-8"><i class="ri-graduation-cap-line text-secondary text-4xl max-md:text-2xl"></i></div>
             <h3 class="font-h3 text-h3 text-white mb-4">Support</h3>
-            <ul class="space-y-3 text-on-surface-variant flex-1">
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-primary rounded-full"></span>
-                Tutorat Sciences (Maths/PCT)
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-primary rounded-full"></span>
-                Orientation Universitaire
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1 h-1 bg-primary rounded-full"></span>
-                Coaching Academique
-              </li>
+            <ul class="space-y-3 text-on-surface-variant flex-1 text-sm">
+              <li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span>Tutorat Sciences (Maths/PCT)</li>
+              <li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span>Orientation Universitaire</li>
+              <li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span>Coaching Académique</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Projects / Stats Section -->
-    <section id="projet" class="py-xxl max-md:py-[15vh] px-6" id="projects">
+
+    <section id="projet" class="py-xxl max-md:py-[15vh] px-6">
       <div class="max-w-[1550px] mx-auto">
-        <div class="grid md:grid-cols-3 gap-8">
-          <div
-            class="p-12 glass-card rounded-[2rem] text-center border-b-4 border-primary">
+        <div class="grid md:grid-cols-3 grid-cols-1 gap-8">
+          <div class="stat-card p-12 glass-card rounded-[2rem] text-center border-b-4 border-primary">
             <div class="text-h1 font-h1 text-white mb-2">+15</div>
-            <div class="text-label-caps text-primary tracking-[0.3em]">
-              Applications Web
-            </div>
+            <div class="text-label-caps text-primary tracking-[0.3em]">Applications Web</div>
           </div>
-          <div
-            class="p-12 glass-card rounded-[2rem] text-center border-b-4 border-secondary">
+          <div class="stat-card p-12 glass-card rounded-[2rem] text-center border-b-4 border-secondary">
             <div class="text-h1 font-h1 text-white mb-2">+07</div>
-            <div class="text-label-caps text-secondary tracking-[0.3em]">
-              Projet d'Equipe
-            </div>
+            <div class="text-label-caps text-secondary tracking-[0.3em]">Projets d'Équipe</div>
           </div>
-          <div
-            class="p-12 glass-card rounded-[2rem] text-center border-b-4 border-primary">
+          <div class="stat-card p-12 glass-card rounded-[2rem] text-center border-b-4 border-primary">
             <div class="text-h1 font-h1 text-white mb-2">+47</div>
-            <div class="text-label-caps text-primary tracking-[0.3em]">
-              dépot Public Github
-            </div>
+            <div class="text-label-caps text-primary tracking-[0.3em]">Dépôts Publics GitHub</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
+
     <section class="pb-xxl max-md:py-[15vh] pt-40 px-6 max-md:px-[4%] max-w-[1550px] mx-auto" id="contact">
-      <div class="grid md:grid-cols-2 gap-16 max-md:gap-10 items-center">
-        <div>
-          <h2 class="font-h2 text-h2 text-white mb-6">
-            <span class="text-primary max-md:text-center">Collaborons!</span>
-          </h2>
-          <p
-            class="text-body-lg max-md:text-[10px] text-on-surface-variant mb-12">
-            Projet, collaboration ou simple échange d'idées ? Discutons-en !
-            Contactez-moi via mes réseaux ou directement via le formulaire
-            ci-dessous.
+      <div class="grid md:grid-cols-2 grid-cols-1 gap-16 max-md:gap-10 items-center">
+        <div class="contact-info-anime">
+          <h2 class="font-h2 text-h2 text-white mb-6"><span class="text-primary">Collaborons !</span></h2>
+          <p class="text-body-lg max-md:text-[12px] text-on-surface-variant mb-12">
+            Projet, collaboration ou simple échange d'idées ? Discutons-en ! Contactez-moi directement.
           </p>
           <div class="space-y-8">
             <div class="flex items-center gap-6 max-md:gap-3 group">
-              <div
-                class="w-14 h-14 max-md:w-12 max-md:h-12 bg-secondary/10 rounded-xl flex items-center justify-center border border-secondary/20 group-hover:bg-secondary group-hover:text-on-secondary transition-all">
-                <i class="ri-mail-line"></i>
-              </div>
+              <div class="w-14 h-14 max-md:w-12 max-md:h-12 bg-secondary/10 rounded-xl flex items-center justify-center border border-secondary/20 group-hover:bg-secondary group-hover:text-on-secondary transition-all"><i class="ri-mail-line"></i></div>
               <div>
-                <div
-                  class="text-sm font-bold text-on-surface-variant uppercase tracking-widest">
-                  Envoyez moi un Mail
-                </div>
-                <div class="text-xl font-bold text-white max-md:text-[12px]">
-                  <a href="mailto:wasfadetonoukoin@gmail.com">wasfadetonoukoin@gmail.com</a>
-                </div>
+                <div class="text-sm font-bold text-on-surface-variant uppercase tracking-widest">Mail</div>
+                <div class="text-xl font-bold text-white max-md:text-[12px]"><a href="mailto:wasfadetonoukoin@gmail.com">wasfadetonoukoin@gmail.com</a></div>
               </div>
             </div>
             <div class="flex items-center gap-6 max-md:gap-3 group">
-              <div
-                class="w-14 h-14 max-md:w-12 max-md:h-12 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 group-hover:bg-primary group-hover:text-on-primary transition-all">
-                <i class="ri-question-answer-line"></i>
-              </div>
+              <div class="w-14 h-14 max-md:w-12 max-md:h-12 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 group-hover:bg-primary group-hover:text-on-primary transition-all"><i class="ri-question-answer-line"></i></div>
               <div>
-                <div
-                  class="text-sm font-bold text-on-surface-variant uppercase tracking-widest">
-                  Whatsapp
-                </div>
-                <div class="text-xl max-md:text-[12px] font-bold text-white max-md:text-[12px]">
-                  <a href="https://wa.me/2200194853019">+220 01 94 85 30 19</a>
-                </div>
+                <div class="text-sm font-bold text-on-surface-variant uppercase tracking-widest">WhatsApp</div>
+                <div class="text-xl font-bold text-white max-md:text-[12px]"><a href="https://wa.me/2290194853019">+229 01 94 85 30 19</a></div>
               </div>
             </div>
           </div>
         </div>
-        <form class="glass-card p-10 max-md:p-5 rounded-[2rem] space-y-6" action="traitement/traitement.php" method = "POST">
-          <?php if (isset($_SESSION["succes"])) { ?>
 
-            <div class="text-center text-emerald-500 text-lg font-light"><?= $_SESSION["succes"] ?? "" ?></div>
-          <?php } ?> <?php if (isset($_SESSION["error"]["send"])) { ?>
-
-            <div class="text-center text-red-500 text-lg font-light"><?= $_SESSION["error"]["send"] ?? "" ?></div>
-          <?php } ?>
-          <div class="grid md:grid-cols-2 max-md:grid-cols-1 gap-6">
-            <div class="space-y-2">
-              <label
-                for="prenom"
-                class="text-xs font-bold text-on-surface-variant uppercase ml-1">Nom</label>
-              <input
-                id="prenom"
-                name="prenom"
-                class="w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
-                placeholder="Wasfade"
-                value = "<?= @$_SESSION["prenom"] ?>"
-                type="text" />
+        <div class="contact-form-anime">
+          <form class="glass-card p-10 max-md:p-5 rounded-[2rem] space-y-6" action="traitement/traitement.php" method="POST">
+            <?php if (isset($_SESSION["succes"])) { ?>
+              <div class="text-center text-emerald-500 text-lg font-light"><?= $_SESSION["succes"] ?></div>
+            <?php } ?> 
+            <?php if (isset($_SESSION["error"]["send"])) { ?>
+              <div class="text-center text-red-500 text-lg font-light"><?= $_SESSION["error"]["send"] ?></div>
+            <?php } ?>
+            
+            <div class="grid md:grid-cols-2 max-md:grid-cols-1 gap-6">
+              <div class="space-y-2">
+                <label for="prenom" class="text-xs font-bold text-on-surface-variant uppercase ml-1">Nom</label>
+                <input id="prenom" name="prenom" class="w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Wasfade" value="<?= @$_SESSION["prenom"] ?>" type="text" />
                 <span class="text-red-500 font-medium text-xs"><?= @$_SESSION["error"]["prenom"] ?? "" ?></span>
+              </div>
+              <div class="space-y-2">
+                <label for="nom" class="text-xs font-bold text-on-surface-variant uppercase ml-1">Prénom</label>
+                <input id="nom" name="nom" class="w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Tonoukoin" value="<?= @$_SESSION["nom"] ?>" type="text" />
+                <span class="text-red-500 font-medium text-xs"><?= @$_SESSION["error"]["nom"] ?? "" ?></span>
+              </div>
             </div>
             <div class="space-y-2">
-              <label
-                for="nom"
-                class="text-xs font-bold text-on-surface-variant uppercase ml-1">Prénom</label>
-              <input
-                id="nom"
-                name="nom"
-                class="w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
-                placeholder="Tonoukoin"
-                value = "<?= @$_SESSION["nom"] ?>"
-                type="text" />
-                <span class="text-red-500 font-medium text-xs"><?= @$_SESSION["error"]["nom"] ?? "" ?></span>
-            </div>
-          </div>
-          <div class="space-y-2">
-            <label
-              for="email"
-              class="text-xs font-bold text-on-surface-variant uppercase ml-1">Adresse mail</label>
-            <input
-              id="email"
-              name="email"
-              class="w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
-              placeholder="wasfade@example.com"
-              value="<?= @$_SESSION["email"] ?>"
-              type="email" />
+              <label for="email" class="text-xs font-bold text-on-surface-variant uppercase ml-1">Adresse mail</label>
+              <input id="email" name="email" class="w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="wasfade@example.com" value="<?= @$_SESSION["email"] ?>" type="email" />
               <span class="text-red-500 font-medium text-xs"><?= @$_SESSION["error"]["email"] ?? "" ?></span>
-          </div>          
-          <div class="space-y-2">
-            <label
-              for="sujet"
-              class="text-xs font-bold text-on-surface-variant uppercase ml-1">Sujet</label>
-            <input
-              id="subject"
-              name="subject"
-              class="w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
-              placeholder="Sujet du message"
-              value="<?= @$_SESSION["subject"] ?>"
-              type="text" />
+            </div>
+            <div class="space-y-2">
+              <label for="subject" class="text-xs font-bold text-on-surface-variant uppercase ml-1">Sujet</label>
+              <input id="subject" name="subject" class="w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Sujet du message" value="<?= @$_SESSION["subject"] ?>" type="text" />
               <span class="text-red-500 font-medium text-xs"><?= @$_SESSION["error"]["subject"] ?? "" ?></span>
-          </div>
-          <div class="space-y-2">
-            <label
-              for="message"
-              class="text-xs font-bold text-on-surface-variant uppercase ml-1">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              class="w-full resize-y bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
-              placeholder="Comment pourrais-je vous aider?"
-              rows="4"><?= @$_SESSION["message"] ?></textarea>
+            </div>
+            <div class="space-y-2">
+              <label for="message" class="text-xs font-bold text-on-surface-variant uppercase ml-1">Message</label>
+              <textarea id="message" name="message" class="w-full resize-y bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Comment pourrais-je vous aider?" rows="4"><?= @$_SESSION["message"] ?></textarea>
               <span class="text-red-500 font-medium text-xs"><?= @$_SESSION["error"]["message"] ?? "" ?></span>
-          </div>
-          <button
-            class="w-full bg-primary-container text-white py-5 max-md:py-3 rounded-xl font-bold text-lg hover:shadow-[0_0_30px_rgba(77,40,185,0.5)] transition-all active:scale-95">
-            Envoyer le message
-          </button>
-        </form>
+            </div>
+            <button class="w-full bg-primary-container text-white py-5 max-md:py-3 rounded-xl font-bold text-lg hover:shadow-[0_0_30px_rgba(77,40,185,0.5)] transition-all active:scale-95">
+              Envoyer le message
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   </main>
-  <!-- Footer -->
-  <footer
-    class="bg-neutral-900 w-full pt-16 pb-5 max-md:px-2 border-t border-white/5 md:px-[8%]">
-    <div
-      class="flex items-start gap-6 flex-row items-center md:px-8 max-md:px-4 justify-between">
-      <div
-        class="text-2xl max-md:text-lg flex flex-row gap-4 max-md:gap-2 items-center justify-center font-bold tracking-tighter text-white font-['Space_Grotesk']">
-        <div class="w-14 max-md:w-12 h-auto">
-          <img
-            src="assets/images/logo.webp"
-            class="w-full flter brightness-[0.5] saturate-[1.3]"
-            alt="DEV WASFADE Logo" />
-        </div>
-        <span class="flex gap-0 leading-[1] max-md:text-sm flex-col justify-center gap-0">
-          <span translate="no">DEV</span>
-          <span>WASFADE</span>
+
+  <footer class="bg-neutral-900 w-full pt-16 pb-5 max-md:px-2 border-t border-white/5 md:px-[8%]">
+    <div class="flex flex-row items-center md:px-8 max-md:px-4 justify-between">
+      <div class="text-2xl max-md:text-lg flex flex-row gap-4 max-md:gap-2 items-center justify-center font-bold tracking-tighter text-white font-['Space_Grotesk']">
+        <div class="w-14 max-md:w-[35px] h-auto"><img src="assets/images/logo.webp" class="w-full flter brightness-[0.5] saturate-[1.3]" alt="DEV WASFADE Logo" /></div>
+        <span class="flex gap-0 leading-[1] max-md:text-[14px] flex-col justify-center">
+          <span translate="no">DEV</span><span>WASFADE</span>
         </span>
       </div>
       <div class="flex flex-col gap-2">
         <h3 class="mb-2 border-b-2 max-md:text-sm border-secondary/60 max-md:capitalize">NAVIGATION</h3>
         <ul class="nav-menu leading-relaxed max-md:leading-[1.4] max-md:text-xs text-on-surface-variant">
-          <li>
-            <a
-              href="#hero"
-              translate="no"
-              class="hover:text-violet-400 pb-1 transition-colors duration-200 active:scale-95 transform transition-al">Home</a>
-          </li>
-          <li>
-            <a
-              href="#skills"
-              class="hover:text-violet-400 pb-1 transition-colors duration-200 active:scale-95 transform transition-al"
-              translate="no">Skills</a>
-          </li>
-          <li>
-            <a
-              href="#services"
-              class="hover:text-violet-400 pb-1 transition-colors duration-200 active:scale-95 transform transition-al">Services</a>
-          </li>
-          <li>
-            <a
-              href="#contact"
-              class="hover:text-violet-400 pb-1 transition-colors duration-200 active:scale-95 transform transition-al">Contact</a>
-          </li>
+          <li><a href="#hero" class="hover:text-violet-400 pb-1 transition-colors duration-200">Home</a></li>
+          <li><a href="#skills" class="hover:text-violet-400 pb-1 transition-colors duration-200" translate="no">Skills</a></li>
+          <li><a href="#services" class="hover:text-violet-400 pb-1 transition-colors duration-200">Services</a></li>
+          <li><a href="#contact" class="hover:text-violet-400 pb-1 transition-colors duration-200">Contact</a></li>
         </ul>
       </div>
     </div>
-    <div
-      class="text-center mt-15 text-neutral-600 text-[10px] tracking-[0.2em] uppercase md:flex md:items-center md:flex-row md:justify-between">
-      <p class="copyright mt-10 max-md:text-xs">
-        &copy; 2026 WASFADE TONOUKOIN| DÉVELOPPEMENT WEB & MOBILE. TOUS DROITS
-        RÉSERVÉS.
-      </p>
+    <div class="text-center mt-15 text-neutral-600 text-[10px] tracking-[0.2em] uppercase md:flex md:items-center md:flex-row md:justify-between">
+      <p class="copyright mt-10 max-md:text-xs">© 2026 WASFADE TONOUKOIN | DÉVELOPPEMENT WEB & MOBILE. TOUS DROITS RÉSERVÉS.</p>
     </div>
   </footer>
 
-  <!-- Bouton de partage fixe -->
-  <button
-    id="partageBtn"
-    class="fixed bottom-6 right-6 p-4 max-md:p-3 w-18 h-18 max-md:w-14 max-md:h-14 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 flex items-center justify-center z-50"
-    title="Partager le site">
+  <button id="partageBtn" class="fixed bottom-6 right-6 p-4 max-md:p-3 w-18 h-18 max-md:w-[50px] max-md:h-[50px] bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 flex items-center justify-center z-50" title="Partager le site">
     <i class="ri-share-fill text-3xl max-md:text-3lg"></i>
   </button>
 
-  <!-- Partage zone -->
-<div id="modalShare" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-md transition-all duration-300">
-  
-  <div class="p-8 h-auto rounded-3xl bg-[#1c1a23] border border-white/10 flex flex-col items-center shadow-2xl w-[90%] max-w-[500px] transform transition-all scale-100">
-    
-    <div class="w-full flex justify-between items-center mb-8">
-      <h3 class="font-semibold text-xl text-white tracking-tight">Partager le lien via...</h3>
-      <button onclick="closeModal()" class="text-gray-400 hover:text-white transition-colors">
-        <i class="ri-close-line text-2xl"></i>
-      </button>
+  <div id="modalShare" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-md transition-all duration-300">
+    <div class="p-8 h-auto rounded-3xl bg-[#1c1a23] border border-white/10 flex flex-col items-center shadow-2xl w-[90%] max-w-[500px]">
+      <div class="w-full flex justify-between items-center mb-8">
+        <h3 class="font-semibold text-xl text-white tracking-tight">Partager le lien via...</h3>
+        <button onclick="closeModal()" class="text-gray-400 hover:text-white transition-colors"><i class="ri-close-line text-2xl"></i></button>
+      </div>
+      <div class="grid grid-cols-4 gap-6 w-full">
+        <button class="group flex flex-col items-center gap-2 shareWays" id="copy"><div class="w-14 h-14 rounded-2xl bg-indigo-500/20 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300 shadow-lg"><i class="ri-file-copy-2-fill text-2xl"></i></div><span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white">Copier</span></button>
+        <button class="group flex flex-col items-center gap-2 shareWays" id="facebook"><div class="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300"><i class="ri-facebook-circle-fill text-2xl"></i></div><span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white">Facebook</span></button>
+        <button class="group flex flex-col items-center gap-2 shareWays" id="whatsapp"><div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300"><i class="ri-whatsapp-fill text-2xl"></i></div><span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white">WhatsApp</span></button>
+        <button class="group flex flex-col items-center gap-2 shareWays" id="linkedin"><div class="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300"><i class="ri-linkedin-box-fill text-2xl"></i></div><span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white">LinkedIn</span></button>
+      </div>
+      <p class="mt-8 text-gray-500 text-[10px] uppercase tracking-widest">Wasfade Tonoukoin • Portfolio</p>
     </div>
-
-    <div class="grid grid-cols-4 gap-6 w-full">    
-    <button class="group flex flex-col items-center gap-2 btnCopier shareWays" id="copy" data-url="https://wa.me/moi">
-        <div class="w-14 h-14 rounded-2xl bg-indigo-500/20 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300 shadow-lg shadow-indigo-500/10">
-          <i class="ri-file-copy-2-fill text-2xl"></i>
-        </div>
-        <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white">Copier</span>
-      </button>
-    <button class="group flex flex-col items-center gap-2 btnFacebook shareWays" id="facebook" data-url="https://wa.me/moi">
-      <div class="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-lg group-hover:shadow-blue-600/20">
-        <i class="ri-facebook-circle-fill text-2xl"></i>
-      </div>
-      
-      <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white transition-colors">
-        Facebook
-      </span>
-    </button>  
-
-      <button class="group flex flex-col items-center gap-2 btnWhatsapp shareWays" id="whatsapp" data-url="https://wa.me/moi">
-        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
-          <i class="ri-whatsapp-fill text-2xl"></i>
-        </div>
-        <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white">WhatsApp</span>
-      </button>
-
-      <button class="group flex flex-col items-center gap-2 btnLinkedIn shareWays" id="linkedin" data-url="https://wa.me/moi">
-        <div class="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-          <i class="ri-linkedin-box-fill text-2xl"></i>
-        </div>
-        <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white">LinkedIn</span>
-      </button>
-
-      <button class="group flex flex-col items-center gap-2 btnMessenger shareWays" id="messenger" data-url="https://wa.me/moi">
-        <div class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
-          <i class="ri-messenger-fill text-2xl"></i>
-        </div>
-        <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white">Messenger</span>
-      </button>
-    <button class="group flex flex-col items-center gap-2 btnInstagram shareWays" id="instagram" data-url="https://wa.me/moi">
-      <div class="w-14 h-14 rounded-2xl bg-pink-500/10 flex items-center justify-center text-pink-500 group-hover:bg-gradient-to-tr group-hover:from-[#f9ce34] group-hover:via-[#ee2a7b] group-hover:to-[#6228d7] group-hover:text-white transition-all duration-500 shadow-lg group-hover:shadow-pink-500/20">
-        <i class="ri-instagram-fill text-2xl"></i>
-      </div>
-      
-      <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white transition-colors">
-        Instagram
-      </span>
-    </button> 
-    <button class="group flex flex-col items-center gap-2 btnTiktok shareWays" id="tiktok" data-url="https://wa.me/moi">
-            <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-gray-400 group-hover:bg-black group-hover:border-white/20 group-hover:text-white group-hover:shadow-[0_0_15px_rgba(255,255,255,0.15)] transition-all duration-300 ease-in-out">
-              <i class="ri-tiktok-fill text-2xl"></i>
-            </div>
-      
-          <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white transition-colors duration-300">
-            TikTok
-          </span>
-    </button>    
-    <button class="group flex flex-col items-center gap-2 btnX shareWays" id="x" data-url="https://wa.me/moi">
-      <div class="w-14 h-14 rounded-2xl bg-black border border-white/10 flex items-center justify-center text-white 
-                  group-hover:bg-white group-hover:text-black transition-all duration-300 
-                  shadow-lg group-hover:shadow-white/10">
-        <i class="ri-twitter-x-fill text-2xl"></i>
-      </div>
-      
-      <span class="text-center font-light text-[11px] text-gray-400 group-hover:text-white transition-colors">
-        X
-      </span>
-    </button>   
-
-      </div>
-
-    <p class="mt-8 text-gray-500 text-[10px] uppercase tracking-widest">Wasfade Tonoukoin • Portfolio</p>
   </div>
-</div>
 
-  <!-- CV indisponible -->
-<div id="ZoneCV" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-md transition-all duration-300">
-  
-  <div class="h-auto rounded-3xl bg-[#1c1a23] border border-white/10 flex flex-col shadow-2xl w-[90%] max-w-[500px] transform transition-all scale-100">
-    
-    <div class="bg-red-50/20 rounded-t-3xl text-4xl font-bold border-b-4 p-2 text-center border-red-500">
-      <button onclick="closeModal()" class="text-gray-400 hover:text-white transition-colors">
-        <i class="ri-close-line"></i>
-      </button>
+  <div id="ZoneCV" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-md transition-all duration-300">
+    <div class="h-auto rounded-3xl bg-[#1c1a23] border border-white/10 flex flex-col shadow-2xl w-[90%] max-w-[500px]">
+      <div class="bg-red-50/20 rounded-t-3xl border-b-4 p-2 text-center border-red-500">
+        <button onclick="closeModal()" class="text-gray-400 hover:text-white transition-colors"><i class="ri-close-line"></i></button>
+      </div>
+      <div class="p-8 w-full text-2xl font-bold text-center">Oups, le CV n'est pas disponible pour le moment !</div>
+      <p class="mt-8 text-gray-500 text-[10px] text-center uppercase tracking-widest">Wasfade Tonoukoin • Portfolio</p>
     </div>
-
-    <div class="p-8 w-full text-2xl font-bold">    
-        Oups, le CV n'est pas disponible pour le moment!         
-    </div>
-
-    <p class="mt-8 text-gray-500 text-[10px] text-center uppercase tracking-widest">Wasfade Tonoukoin • Portfolio</p>
   </div>
-</div>
 
 
   <script>
-    //mon Burger System
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. Détection de la taille de l'écran (Mobile vs PC)
+        const isMobile = window.innerWidth < 768;
+
+        // 2. Animation de la Section HERO
+        const heroText = document.querySelector('.hero-text-anime');
+        const heroImg = document.querySelector('.hero-img-anime');
+        if(isMobile) {
+            heroText.setAttribute('data-aos', 'fade-up');
+            heroImg.setAttribute('data-aos', 'zoom-in');
+        } else {
+            heroText.setAttribute('data-aos', 'fade-right');
+            heroImg.setAttribute('data-aos', 'fade-left');
+        }
+
+        // 3. Animation des cartes de COMPÉTENCES (Effet cascade intelligent)
+        const skillCards = document.querySelectorAll('.skill-card');
+        skillCards.forEach((card, index) => {
+            if (isMobile) {
+                card.setAttribute('data-aos', 'fade-up');
+                // Sur mobile, pas de gros délais pour éviter les espaces blancs au scroll vertical
+                card.setAttribute('data-aos-delay', (index % 2) * 100); 
+            } else {
+                card.setAttribute('data-aos', 'zoom-in');
+                card.setAttribute('data-aos-delay', (index * 50)); // Cascade fluide sur PC
+            }
+        });
+
+        // 4. Animation des cartes de SERVICES
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach((card, index) => {
+            card.setAttribute('data-aos', 'fade-up');
+            if (!isMobile) {
+                card.setAttribute('data-aos-delay', (index * 150)); // Cascade sur PC
+            }
+        });
+
+        // 5. Animation des statistiques et du formulaire de contact
+        const statCards = document.querySelectorAll('.stat-card');
+        statCards.forEach((card, index) => {
+            card.setAttribute('data-aos', 'zoom-in');
+            if (!isMobile) card.setAttribute('data-aos-delay', (index * 100));
+        });
+
+        if(isMobile) {
+            document.querySelector('.contact-info-anime').setAttribute('data-aos', 'fade-up');
+            document.querySelector('.contact-form-anime').setAttribute('data-aos', 'fade-up');
+        } else {
+            document.querySelector('.contact-info-anime').setAttribute('data-aos', 'fade-right');
+            document.querySelector('.contact-form-anime').setAttribute('data-aos', 'fade-left');
+        }
+
+    
+        AOS.init({
+            duration: 850,   
+            once: true,      
+            offset: 100      
+        });
+    });
+  </script>
+
+  <script>
     let burger = document.getElementById("burger");
     let closer = document.getElementById("closer");
+    burger.addEventListener("click", () => { document.querySelector(".navMobile").classList.remove("translate-x-[-100%]"); });
+    closer.addEventListener("click", () => { document.querySelector(".navMobile").classList.add("translate-x-[-100%]"); });
 
-    burger.addEventListener("click", () => {
-      document
-        .querySelector(".navMobile")
-        .classList.remove("translate-x-[-100%]");
-    });
-
-    closer.addEventListener("click", () => {
-      document
-        .querySelector(".navMobile")
-        .classList.add("translate-x-[-100%]");
-    });
-
-    //changer le lien activé
     let liens = document.querySelectorAll(".lien");
     liens.forEach((lien) => {
       lien.addEventListener("click", () => {
@@ -899,95 +597,40 @@
         });
         lien.classList.remove("text-neutral-400", "border-transparent");
         lien.classList.add("text-lime-400", "border-lime-400");
+        document.querySelector(".navMobile").classList.add("translate-x-[-100%]");        
       });
     });
 
-    //share zone
     const partageBtn = document.getElementById("partageBtn");
-
-    partageBtn.addEventListener("click",() => {
-
-    const shareData = {
-      title: "Portfolio de Wasfade",
-      text: "Regardez le Portfolio de Wasfade Tonoukoin Software Engineer !",
-      url: "https://wa.me/moi",
-    };
-      try {
-        navigator.share(shareData);
-      } catch (err) {
+    partageBtn.addEventListener("click", () => {
+      const shareData = { title: "Portfolio de Wasfade", text: "Regardez le Portfolio de Wasfade Tonoukoin !", url: "https://wa.me/moi" };
+      try { navigator.share(shareData); } catch (err) {
         document.getElementById("modalShare").classList.toggle("hidden");
-
         shareWays = document.querySelectorAll(".shareWays");
-        shareWays.forEach(shareWay => {
-          shareWay.addEventListener("click", ()=>{
-            shareOn(shareWay.id);
-          })
-        })
-        //le navigateur supporte le partage natif
+        shareWays.forEach(shareWay => { shareWay.addEventListener("click", () => { shareOn(shareWay.id); }) })
       }
     });
 
-    function openCV(){
-      document.getElementById("ZoneCV").classList.remove("hidden");
-    }
-    function closeModal(){
-      document.getElementById("modalShare").classList.add("hidden");
-      document.getElementById("ZoneCV").classList.add("hidden");
-    }
+    function openCV() { document.getElementById("ZoneCV").classList.remove("hidden"); }
+    function closeModal() { document.getElementById("modalShare").classList.add("hidden"); document.getElementById("ZoneCV").classList.add("hidden"); }
 
-    //paratge si le modèle de téléphone ne travaille pas.
     function shareOn(platform) {
-        const siteUrl = "https://wa.me/moi";
-        const siteText =
-          "Regardez le Portfolio de Wasfade Tonoukoin Software Engineer !";
-        const encodedUrl = encodeURIComponent(siteUrl);
-        const encodedText = encodeURIComponent(siteText);
-
-        let shareUrl = "";
-
-        switch (platform) {
-          case "whatsapp":
-            shareUrl = `https://wa.me/?text=${encodedText}%20${encodedUrl}`;
-            break;
-          case "facebook":
-            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
-            break;
-          case "x":
-            shareUrl = `https://x.com/intent/post?text=${encodedText}&url=${encodedUrl}`;
-            break;
-          case "linkedin":
-            shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
-            break;
-          case "messenger":
-            shareUrl = `https://www.facebook.com/dialog/send?link=${encodedUrl}&app_id=123456789&redirect_uri=${encodedUrl}`;
-            break;
-          case "instagram":
-            navigator.clipboard.writeText(siteUrl);
-            alert(
-              "Lien copié ! Instagram ne permet pas le partage direct d'URL, vous pouvez maintenant le coller dans votre Story.",
-            );
-            return;
-          case "tiktok":
-            navigator.clipboard.writeText(siteUrl);
-            alert("Lien copié pour TikTok !");
-            return;
-          case "copy":
-            navigator.clipboard.writeText(siteUrl);
-            alert("Lien copié avec succès !");
-            return;
-        }
-
-        if (shareUrl !== "") {
-          window.open(shareUrl, "_blank", "width=600,height=450");
-        }
-    }    
-    
-
+      const siteUrl = "https://wa.me/moi";
+      const siteText = "Regardez le Portfolio de Wasfade Tonoukoin !";
+      const encodedUrl = encodeURIComponent(siteUrl);
+      const encodedText = encodeURIComponent(siteText);
+      let shareUrl = "";
+      switch (platform) {
+        case "whatsapp": shareUrl = `https://wa.me/?text=${encodedText}%20${encodedUrl}`; break;
+        case "facebook": shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`; break;
+        case "x": shareUrl = `https://x.com/intent/post?text=${encodedText}&url=${encodedUrl}`; break;
+        case "linkedin": shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`; break;
+        case "copy": navigator.clipboard.writeText(siteUrl); alert("Lien copié !"); return;
+      }
+      if (shareUrl !== "") window.open(shareUrl, "_blank", "width=600,height=450");
+    }
   </script>
 
-<?php 
-    session_unset();
-?>  
+  <?php session_unset(); ?>
 </body>
-
 </html>
