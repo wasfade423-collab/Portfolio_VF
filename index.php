@@ -423,38 +423,36 @@
 
         <div class="contact-form-anime">
           <form class="glass-card p-10 max-md:p-5 rounded-[2rem] space-y-6" action="" method="POST">
-            <?php if (isset($_SESSION["succes"])) { ?>
-              <div class="text-center text-emerald-500 text-lg font-light"><?= $_SESSION["succes"] ?></div>
-            <?php } ?> 
-            <?php if (isset($_SESSION["error"]["send"])) { ?>
-              <div class="text-center text-red-500 text-lg font-light"><?= $_SESSION["error"]["send"] ?></div>
-            <?php } ?>
+
+              <div class="text-center succes text-emerald-500 text-lg font-light"></div>
+
+              <div class="text-center error text-red-500 text-lg font-light"></div>
             
             <div class="grid md:grid-cols-2 max-md:grid-cols-1 gap-6">
               <div class="space-y-2">
                 <label for="prenom" class="text-xs font-bold text-on-surface-variant uppercase ml-1">Nom</label>
-                <input id="prenom" name="prenom" class="form-champs w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Wasfade" value="<?= @$_SESSION["prenom"] ?>" type="text" />
+                <input id="prenom" name="prenom" class="form-champs w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Wasfade">
                 <span class="text-red-500 font-medium text-xs form-errors"></span>
               </div>
               <div class="space-y-2">
                 <label for="nom" class="text-xs font-bold text-on-surface-variant uppercase ml-1">Prénom</label>
-                <input id="nom" name="nom" class="form-champs w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Tonoukoin" value="<?= @$_SESSION["nom"] ?>" type="text" />
+                <input id="nom" name="nom" class="form-champs w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Tonoukoin">
                 <span class="text-red-500 font-medium text-xs form-errors"></span>
               </div>
             </div>
             <div class="space-y-2">
               <label for="email" class="text-xs font-bold text-on-surface-variant uppercase ml-1">Adresse mail</label>
-              <input id="email" name="email" class="form-champs w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="wasfade@example.com" value="<?= @$_SESSION["email"] ?>" type="email" />
+              <input id="email" name="email" class="form-champs w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="wasfade@example.com">
               <span class="text-red-500 font-medium text-xs form-errors"></span>
             </div>
             <div class="space-y-2">
               <label for="subject" class="text-xs font-bold text-on-surface-variant uppercase ml-1">Sujet</label>
-              <input id="subject" name="subject" class="form-champs w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Sujet du message" value="<?= @$_SESSION["subject"] ?>" type="text" />
+              <input id="subject" name="subject" class="form-champs w-full bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Sujet du message" type="text">
               <span class="text-red-500 font-medium text-xs form-errors"></span>
             </div>
             <div class="space-y-2">
               <label for="message" class="text-xs font-bold text-on-surface-variant uppercase ml-1">Message</label>
-              <textarea id="message" name="message" class="w-full form-champs resize-y bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Comment pourrais-je vous aider?" rows="4"><?= @$_SESSION["message"] ?></textarea>
+              <textarea id="message" name="message" class="w-full form-champs resize-y bg-[#111113] border-outline-variant text-white rounded-xl p-4 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" placeholder="Comment pourrais-je vous aider?" rows="4"></textarea>
               <span class="text-red-500 font-medium text-xs form-errors"></span>
             </div>
             <button id="submit" type="button" class="w-full bg-primary-container text-white py-5 max-md:py-3 rounded-xl font-bold text-lg hover:shadow-[0_0_30px_rgba(77,40,185,0.5)] transition-all active:scale-95">
@@ -652,8 +650,6 @@
     }
     document.getElementById("submit").addEventListener('click', ()=>{
       if(traitement()){
-
-          console.log(1);
           let nom = document.getElementById("nom").value;
           let prenom = document.getElementById("prenom").value;
           let subject = document.getElementById("subject").value;
@@ -663,14 +659,12 @@
           emailjs.init("IGsJw5AbGmyrIcy87");
           emailjs.send("service_mwcklmp", "template_hzkkpv9", datas)
               .then(function(response){
-                  console.log("succes");
+                  document.querySelector(".succes").textContent = "Message envoyé avec succes.";
               },
               function(error){
-                  console.log("echec");
+                  document.querySelector(".error").textContent = "L'envoie a échoué.";
               }
           )
-      }else{
-        console.log("validation éhouée.");
       }
     })    
   </script>
